@@ -1,0 +1,274 @@
+# import CustomerCreateInput, CustomerUpdateInput, CustomerWhereUniqueInput, CustomerWhereInput CustomerSubscriptionPayload from "./generated/schema.graphql"
+# import UserCreateInput, UserWhereInput, UserSubscriptionPayload, UserUpdateInput, UserWhereUniqueInput from "./generated/schema.graphql"
+# import ProjectSubscriptionPayload, ProjectCreateInput, ProjectUpdateInput, ProjectWhereUniqueInput ProjectWhereInput from "./generated/schema.graphql"
+# import Phases, MainProject, MainProjectSubscriptionPayload, MainProjectCreateInput, MainProjectUpdateInput, MainProjectWhereUniqueInput MainProjectWhereInput from "./generated/schema.graphql"
+# import ProductCreateInput, ProductUpdateInput, ProductWhereUniqueInput from "./generated/schema.graphql"
+# import MutationType from "./generated/schema.graphql"
+
+type Query {
+  me: User
+
+  getProjects(offset: Int!, limit: Int!, where: ProjectWhereInput): [Project]
+  
+  getMainProjects(offset: Int!, limit: Int!, where: MainProjectWhereInput): [MainProject]
+  getMainProjectById(id: Int!): MainProject
+  
+  getCustomers(offset: Int!, limit: Int!, where: CustomerWhereInput): [Customer]
+  getCustomerById(id: Int!): Customer
+
+  getProducts(offset: Int!, limit: Int!, where: ProductWhereInput): [Product]
+  getProductById(where: ProductWhereUniqueInput): Product
+
+  getUserById(id: String!): User
+  getUsers(offset: Int!, limit: Int!, where: UserWhereInput): [User]
+}
+
+type Mutation {
+  signup(email: String!, password: String!, name: String!): AuthPayload!
+  login(email: String!, password: String!): AuthPayload!
+
+  createCustomer(customer: CustomerCreateInput!): Customer
+  updateCustomer(customer: UpdateCustomer!): Customer
+  deleteCustomer(customer: CustomerWhereUniqueInput): Customer
+
+  createUser(user: UserCreateInput!): User
+  updateUser(user: UpdateUser!): User
+  deleteUser(user: UserWhereUniqueInput): User
+
+  createMainProject(project: MainProjectCreateInput!): MainProject
+  updateMainProject(project: UpdateMainProject!): MainProject
+  deleteMainProject(project: MainProjectWhereUniqueInput!): MainProject
+
+  createProject(project: ProjectCreateInput!): Project
+  updateProject(project: ProjectUpdateInput!): Project
+  deleteProject(project: ProjectWhereUniqueInput!): Project
+
+  createProduct(product: ProductCreateInput!): Product
+  updateProduct(product: ProductUpdateInputWrapper!): Product
+  deleteProduct(product: ProductWhereUniqueInput!): Product
+}
+
+type Subscription {
+  customer: CustomerSubscriptionPayload
+  user: UserSubscriptionPayload
+  newProduct: Product
+  updatedProduct: Product
+  deletedProduct: Product
+
+
+  mainProject: MainProjectSubscriptionPayload
+  project: ProjectSubscriptionPayload
+
+  newProject: Project
+  updatedProject: Project
+  deletedProject: Project
+}
+
+
+##########################################################
+##################### Customer ###########################
+##########################################################
+
+type Customer {
+  id: ID!
+  name: String!
+  logo: String
+  branch: [Branch]
+  classification: String
+  projectManager: [ProjectManager]
+  notes: String
+}
+
+input UpdateCustomer {
+    data: CustomerUpdateInput
+    where: CustomerWhereUniqueInput
+}
+
+
+
+##########################################################
+##################### Buisness ###########################
+##########################################################
+
+type Buisness {
+  id: ID!
+  title: String!
+  shortDescription: String!
+  longDescription: String
+}
+
+
+
+
+##########################################################
+####################### Branch ###########################
+##########################################################
+
+type Branch {
+  id: ID!
+  name: String!
+  address: Address!
+  type: String!
+  buisness: [Buisness]
+  contacts: [Contact]
+  products: [Product]
+}
+
+
+
+
+##########################################################
+###################### Address ###########################
+##########################################################
+
+type Address {
+  id: ID!
+  postalCode: String!
+  street: String!
+  city: String!
+  country: String!
+}
+
+
+##########################################################
+###################### User ###########################
+##########################################################
+
+
+type User {
+  id: ID
+  email: String!
+  profileImage: String
+  password: String!
+  firstname: String!
+  lastname: String!
+  nickname: String
+  telephone: String
+  mobile: String
+  position: String
+  address: Address
+  roles: [String]
+}
+
+input UpdateUser {
+  data: UserUpdateInput
+  where: UserWhereUniqueInput
+}
+
+
+##########################################################
+###################### ProjectManager ####################
+##########################################################
+
+type ProjectManager {
+  id: ID
+  order: Int!
+  manager: User!
+  notes: String
+}
+
+##########################################################
+###################### ProjectManager ####################
+##########################################################
+
+type Contact {
+  id: ID
+  email: String
+  profileImage: String
+  firstname: String!
+  lastname: String
+  nickname: String
+  telephone: String 
+  mobile: String
+  position: String
+  notes: String
+}
+
+
+##########################################################
+###################### Projects ##########################
+##########################################################
+
+input UpdateMainProject {
+    data: MainProjectUpdateInput!
+    where: MainProjectWhereUniqueInput!
+}
+
+
+
+
+
+type Project {
+  id: Int!
+  status: Int!
+  mainProject: MainProject!
+  shortDescription: String!
+  notes: String
+  product: Product!
+  phases: [ProjectPhase]!
+  projectManager: [ProjectManager]!
+}
+
+ #Phases
+ type ProjectPhase  {
+    id: ID!
+    name: String!
+    status: Int
+    createdAt: DateTime!
+    updatedAt: DateTime
+    roles: [String]!
+    users: [String]!
+    forms: ProjectForms
+ }
+
+
+ #ProjectForms
+type ProjectForms {
+  id: ID!
+  criteriaCalculator: CriteriaCalculator
+}
+
+ type CriteriaCalculator  {
+  id: ID!
+  status: Int!
+  required: Boolean!
+  milestone: Boolean!
+  createdAt: DateTime!
+  updatedAt: DateTime
+ }
+
+##########################################################
+###################### Product ###########################
+##########################################################
+
+input ProductUpdateInputWrapper {
+  data: ProductUpdateInput!
+  where: ProductWhereUniqueInput!
+}
+
+type Product {
+  id: ID 
+  name: String!
+  shortDescription: String!
+  description: String
+}
+
+
+
+type AuthPayload {
+  token: String!
+  user: User!
+}
+
+
+
+type Lead {
+  id: ID
+  customerName: String!
+  address: Address!
+  notes: String
+  products: [Product]!
+}
+
+
+

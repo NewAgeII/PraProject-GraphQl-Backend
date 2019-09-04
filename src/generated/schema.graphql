@@ -1,0 +1,4829 @@
+type Address {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  postalCode: String!
+  city: String!
+  street: String!
+  country: String!
+}
+
+type AddressConnection {
+  pageInfo: PageInfo!
+  edges: [AddressEdge]!
+  aggregate: AggregateAddress!
+}
+
+input AddressCreateInput {
+  id: ID
+  postalCode: String!
+  city: String!
+  street: String!
+  country: String!
+}
+
+input AddressCreateOneInput {
+  create: AddressCreateInput
+  connect: AddressWhereUniqueInput
+}
+
+type AddressEdge {
+  node: Address!
+  cursor: String!
+}
+
+enum AddressOrderByInput {
+  id_ASC
+  id_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  postalCode_ASC
+  postalCode_DESC
+  city_ASC
+  city_DESC
+  street_ASC
+  street_DESC
+  country_ASC
+  country_DESC
+}
+
+type AddressPreviousValues {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  postalCode: String!
+  city: String!
+  street: String!
+  country: String!
+}
+
+type AddressSubscriptionPayload {
+  mutation: MutationType!
+  node: Address
+  updatedFields: [String!]
+  previousValues: AddressPreviousValues
+}
+
+input AddressSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: AddressWhereInput
+  AND: [AddressSubscriptionWhereInput!]
+  OR: [AddressSubscriptionWhereInput!]
+  NOT: [AddressSubscriptionWhereInput!]
+}
+
+input AddressUpdateDataInput {
+  postalCode: String
+  city: String
+  street: String
+  country: String
+}
+
+input AddressUpdateInput {
+  postalCode: String
+  city: String
+  street: String
+  country: String
+}
+
+input AddressUpdateManyMutationInput {
+  postalCode: String
+  city: String
+  street: String
+  country: String
+}
+
+input AddressUpdateOneRequiredInput {
+  create: AddressCreateInput
+  update: AddressUpdateDataInput
+  upsert: AddressUpsertNestedInput
+  connect: AddressWhereUniqueInput
+}
+
+input AddressUpsertNestedInput {
+  update: AddressUpdateDataInput!
+  create: AddressCreateInput!
+}
+
+input AddressWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  postalCode: String
+  postalCode_not: String
+  postalCode_in: [String!]
+  postalCode_not_in: [String!]
+  postalCode_lt: String
+  postalCode_lte: String
+  postalCode_gt: String
+  postalCode_gte: String
+  postalCode_contains: String
+  postalCode_not_contains: String
+  postalCode_starts_with: String
+  postalCode_not_starts_with: String
+  postalCode_ends_with: String
+  postalCode_not_ends_with: String
+  city: String
+  city_not: String
+  city_in: [String!]
+  city_not_in: [String!]
+  city_lt: String
+  city_lte: String
+  city_gt: String
+  city_gte: String
+  city_contains: String
+  city_not_contains: String
+  city_starts_with: String
+  city_not_starts_with: String
+  city_ends_with: String
+  city_not_ends_with: String
+  street: String
+  street_not: String
+  street_in: [String!]
+  street_not_in: [String!]
+  street_lt: String
+  street_lte: String
+  street_gt: String
+  street_gte: String
+  street_contains: String
+  street_not_contains: String
+  street_starts_with: String
+  street_not_starts_with: String
+  street_ends_with: String
+  street_not_ends_with: String
+  country: String
+  country_not: String
+  country_in: [String!]
+  country_not_in: [String!]
+  country_lt: String
+  country_lte: String
+  country_gt: String
+  country_gte: String
+  country_contains: String
+  country_not_contains: String
+  country_starts_with: String
+  country_not_starts_with: String
+  country_ends_with: String
+  country_not_ends_with: String
+  AND: [AddressWhereInput!]
+  OR: [AddressWhereInput!]
+  NOT: [AddressWhereInput!]
+}
+
+input AddressWhereUniqueInput {
+  id: ID
+}
+
+type AggregateAddress {
+  count: Int!
+}
+
+type AggregateAnalyzeCustomerForm {
+  count: Int!
+}
+
+type AggregateBranch {
+  count: Int!
+}
+
+type AggregateBuisness {
+  count: Int!
+}
+
+type AggregateContact {
+  count: Int!
+}
+
+type AggregateCriteriaCalculator {
+  count: Int!
+}
+
+type AggregateCustomer {
+  count: Int!
+}
+
+type AggregateLead {
+  count: Int!
+}
+
+type AggregateMainProject {
+  count: Int!
+}
+
+type AggregateMainProjectPhases {
+  count: Int!
+}
+
+type AggregatePermission {
+  count: Int!
+}
+
+type AggregatePermissionAction {
+  count: Int!
+}
+
+type AggregatePhaseFormsPayload {
+  count: Int!
+}
+
+type AggregatePhasePayload {
+  count: Int!
+}
+
+type AggregateProduct {
+  count: Int!
+}
+
+type AggregateProject {
+  count: Int!
+}
+
+type AggregateProjectForms {
+  count: Int!
+}
+
+type AggregateProjectManager {
+  count: Int!
+}
+
+type AggregateProjectPhase {
+  count: Int!
+}
+
+type AggregateUser {
+  count: Int!
+}
+
+type AnalyzeCustomerForm {
+  id: ID!
+  payload: PhaseFormsPayload
+  result: String
+}
+
+type AnalyzeCustomerFormConnection {
+  pageInfo: PageInfo!
+  edges: [AnalyzeCustomerFormEdge]!
+  aggregate: AggregateAnalyzeCustomerForm!
+}
+
+input AnalyzeCustomerFormCreateInput {
+  id: ID
+  payload: PhaseFormsPayloadCreateOneInput
+  result: String
+}
+
+type AnalyzeCustomerFormEdge {
+  node: AnalyzeCustomerForm!
+  cursor: String!
+}
+
+enum AnalyzeCustomerFormOrderByInput {
+  id_ASC
+  id_DESC
+  result_ASC
+  result_DESC
+}
+
+type AnalyzeCustomerFormPreviousValues {
+  id: ID!
+  result: String
+}
+
+type AnalyzeCustomerFormSubscriptionPayload {
+  mutation: MutationType!
+  node: AnalyzeCustomerForm
+  updatedFields: [String!]
+  previousValues: AnalyzeCustomerFormPreviousValues
+}
+
+input AnalyzeCustomerFormSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: AnalyzeCustomerFormWhereInput
+  AND: [AnalyzeCustomerFormSubscriptionWhereInput!]
+  OR: [AnalyzeCustomerFormSubscriptionWhereInput!]
+  NOT: [AnalyzeCustomerFormSubscriptionWhereInput!]
+}
+
+input AnalyzeCustomerFormUpdateInput {
+  payload: PhaseFormsPayloadUpdateOneInput
+  result: String
+}
+
+input AnalyzeCustomerFormUpdateManyMutationInput {
+  result: String
+}
+
+input AnalyzeCustomerFormWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  payload: PhaseFormsPayloadWhereInput
+  result: String
+  result_not: String
+  result_in: [String!]
+  result_not_in: [String!]
+  result_lt: String
+  result_lte: String
+  result_gt: String
+  result_gte: String
+  result_contains: String
+  result_not_contains: String
+  result_starts_with: String
+  result_not_starts_with: String
+  result_ends_with: String
+  result_not_ends_with: String
+  AND: [AnalyzeCustomerFormWhereInput!]
+  OR: [AnalyzeCustomerFormWhereInput!]
+  NOT: [AnalyzeCustomerFormWhereInput!]
+}
+
+input AnalyzeCustomerFormWhereUniqueInput {
+  id: ID
+}
+
+type BatchPayload {
+  count: Long!
+}
+
+type Branch {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String!
+  type: String!
+  buisness(where: BuisnessWhereInput, orderBy: BuisnessOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Buisness!]
+  address: Address!
+  products(where: ProductWhereInput, orderBy: ProductOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Product!]
+  contacts(where: ContactWhereInput, orderBy: ContactOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Contact!]
+}
+
+type BranchConnection {
+  pageInfo: PageInfo!
+  edges: [BranchEdge]!
+  aggregate: AggregateBranch!
+}
+
+input BranchCreateInput {
+  id: ID
+  name: String!
+  type: String!
+  buisness: BuisnessCreateManyInput
+  address: AddressCreateOneInput!
+  products: ProductCreateManyInput
+  contacts: ContactCreateManyInput
+}
+
+input BranchCreateManyInput {
+  create: [BranchCreateInput!]
+  connect: [BranchWhereUniqueInput!]
+}
+
+type BranchEdge {
+  node: Branch!
+  cursor: String!
+}
+
+enum BranchOrderByInput {
+  id_ASC
+  id_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  name_ASC
+  name_DESC
+  type_ASC
+  type_DESC
+}
+
+type BranchPreviousValues {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String!
+  type: String!
+}
+
+input BranchScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  type: String
+  type_not: String
+  type_in: [String!]
+  type_not_in: [String!]
+  type_lt: String
+  type_lte: String
+  type_gt: String
+  type_gte: String
+  type_contains: String
+  type_not_contains: String
+  type_starts_with: String
+  type_not_starts_with: String
+  type_ends_with: String
+  type_not_ends_with: String
+  AND: [BranchScalarWhereInput!]
+  OR: [BranchScalarWhereInput!]
+  NOT: [BranchScalarWhereInput!]
+}
+
+type BranchSubscriptionPayload {
+  mutation: MutationType!
+  node: Branch
+  updatedFields: [String!]
+  previousValues: BranchPreviousValues
+}
+
+input BranchSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: BranchWhereInput
+  AND: [BranchSubscriptionWhereInput!]
+  OR: [BranchSubscriptionWhereInput!]
+  NOT: [BranchSubscriptionWhereInput!]
+}
+
+input BranchUpdateDataInput {
+  name: String
+  type: String
+  buisness: BuisnessUpdateManyInput
+  address: AddressUpdateOneRequiredInput
+  products: ProductUpdateManyInput
+  contacts: ContactUpdateManyInput
+}
+
+input BranchUpdateInput {
+  name: String
+  type: String
+  buisness: BuisnessUpdateManyInput
+  address: AddressUpdateOneRequiredInput
+  products: ProductUpdateManyInput
+  contacts: ContactUpdateManyInput
+}
+
+input BranchUpdateManyDataInput {
+  name: String
+  type: String
+}
+
+input BranchUpdateManyInput {
+  create: [BranchCreateInput!]
+  update: [BranchUpdateWithWhereUniqueNestedInput!]
+  upsert: [BranchUpsertWithWhereUniqueNestedInput!]
+  delete: [BranchWhereUniqueInput!]
+  connect: [BranchWhereUniqueInput!]
+  set: [BranchWhereUniqueInput!]
+  disconnect: [BranchWhereUniqueInput!]
+  deleteMany: [BranchScalarWhereInput!]
+  updateMany: [BranchUpdateManyWithWhereNestedInput!]
+}
+
+input BranchUpdateManyMutationInput {
+  name: String
+  type: String
+}
+
+input BranchUpdateManyWithWhereNestedInput {
+  where: BranchScalarWhereInput!
+  data: BranchUpdateManyDataInput!
+}
+
+input BranchUpdateWithWhereUniqueNestedInput {
+  where: BranchWhereUniqueInput!
+  data: BranchUpdateDataInput!
+}
+
+input BranchUpsertWithWhereUniqueNestedInput {
+  where: BranchWhereUniqueInput!
+  update: BranchUpdateDataInput!
+  create: BranchCreateInput!
+}
+
+input BranchWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  type: String
+  type_not: String
+  type_in: [String!]
+  type_not_in: [String!]
+  type_lt: String
+  type_lte: String
+  type_gt: String
+  type_gte: String
+  type_contains: String
+  type_not_contains: String
+  type_starts_with: String
+  type_not_starts_with: String
+  type_ends_with: String
+  type_not_ends_with: String
+  buisness_every: BuisnessWhereInput
+  buisness_some: BuisnessWhereInput
+  buisness_none: BuisnessWhereInput
+  address: AddressWhereInput
+  products_every: ProductWhereInput
+  products_some: ProductWhereInput
+  products_none: ProductWhereInput
+  contacts_every: ContactWhereInput
+  contacts_some: ContactWhereInput
+  contacts_none: ContactWhereInput
+  AND: [BranchWhereInput!]
+  OR: [BranchWhereInput!]
+  NOT: [BranchWhereInput!]
+}
+
+input BranchWhereUniqueInput {
+  id: ID
+}
+
+type Buisness {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  title: String!
+  shortDescription: String!
+  longDescription: String!
+}
+
+type BuisnessConnection {
+  pageInfo: PageInfo!
+  edges: [BuisnessEdge]!
+  aggregate: AggregateBuisness!
+}
+
+input BuisnessCreateInput {
+  id: ID
+  title: String!
+  shortDescription: String!
+  longDescription: String!
+}
+
+input BuisnessCreateManyInput {
+  create: [BuisnessCreateInput!]
+  connect: [BuisnessWhereUniqueInput!]
+}
+
+type BuisnessEdge {
+  node: Buisness!
+  cursor: String!
+}
+
+enum BuisnessOrderByInput {
+  id_ASC
+  id_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  title_ASC
+  title_DESC
+  shortDescription_ASC
+  shortDescription_DESC
+  longDescription_ASC
+  longDescription_DESC
+}
+
+type BuisnessPreviousValues {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  title: String!
+  shortDescription: String!
+  longDescription: String!
+}
+
+input BuisnessScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  shortDescription: String
+  shortDescription_not: String
+  shortDescription_in: [String!]
+  shortDescription_not_in: [String!]
+  shortDescription_lt: String
+  shortDescription_lte: String
+  shortDescription_gt: String
+  shortDescription_gte: String
+  shortDescription_contains: String
+  shortDescription_not_contains: String
+  shortDescription_starts_with: String
+  shortDescription_not_starts_with: String
+  shortDescription_ends_with: String
+  shortDescription_not_ends_with: String
+  longDescription: String
+  longDescription_not: String
+  longDescription_in: [String!]
+  longDescription_not_in: [String!]
+  longDescription_lt: String
+  longDescription_lte: String
+  longDescription_gt: String
+  longDescription_gte: String
+  longDescription_contains: String
+  longDescription_not_contains: String
+  longDescription_starts_with: String
+  longDescription_not_starts_with: String
+  longDescription_ends_with: String
+  longDescription_not_ends_with: String
+  AND: [BuisnessScalarWhereInput!]
+  OR: [BuisnessScalarWhereInput!]
+  NOT: [BuisnessScalarWhereInput!]
+}
+
+type BuisnessSubscriptionPayload {
+  mutation: MutationType!
+  node: Buisness
+  updatedFields: [String!]
+  previousValues: BuisnessPreviousValues
+}
+
+input BuisnessSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: BuisnessWhereInput
+  AND: [BuisnessSubscriptionWhereInput!]
+  OR: [BuisnessSubscriptionWhereInput!]
+  NOT: [BuisnessSubscriptionWhereInput!]
+}
+
+input BuisnessUpdateDataInput {
+  title: String
+  shortDescription: String
+  longDescription: String
+}
+
+input BuisnessUpdateInput {
+  title: String
+  shortDescription: String
+  longDescription: String
+}
+
+input BuisnessUpdateManyDataInput {
+  title: String
+  shortDescription: String
+  longDescription: String
+}
+
+input BuisnessUpdateManyInput {
+  create: [BuisnessCreateInput!]
+  update: [BuisnessUpdateWithWhereUniqueNestedInput!]
+  upsert: [BuisnessUpsertWithWhereUniqueNestedInput!]
+  delete: [BuisnessWhereUniqueInput!]
+  connect: [BuisnessWhereUniqueInput!]
+  set: [BuisnessWhereUniqueInput!]
+  disconnect: [BuisnessWhereUniqueInput!]
+  deleteMany: [BuisnessScalarWhereInput!]
+  updateMany: [BuisnessUpdateManyWithWhereNestedInput!]
+}
+
+input BuisnessUpdateManyMutationInput {
+  title: String
+  shortDescription: String
+  longDescription: String
+}
+
+input BuisnessUpdateManyWithWhereNestedInput {
+  where: BuisnessScalarWhereInput!
+  data: BuisnessUpdateManyDataInput!
+}
+
+input BuisnessUpdateWithWhereUniqueNestedInput {
+  where: BuisnessWhereUniqueInput!
+  data: BuisnessUpdateDataInput!
+}
+
+input BuisnessUpsertWithWhereUniqueNestedInput {
+  where: BuisnessWhereUniqueInput!
+  update: BuisnessUpdateDataInput!
+  create: BuisnessCreateInput!
+}
+
+input BuisnessWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  shortDescription: String
+  shortDescription_not: String
+  shortDescription_in: [String!]
+  shortDescription_not_in: [String!]
+  shortDescription_lt: String
+  shortDescription_lte: String
+  shortDescription_gt: String
+  shortDescription_gte: String
+  shortDescription_contains: String
+  shortDescription_not_contains: String
+  shortDescription_starts_with: String
+  shortDescription_not_starts_with: String
+  shortDescription_ends_with: String
+  shortDescription_not_ends_with: String
+  longDescription: String
+  longDescription_not: String
+  longDescription_in: [String!]
+  longDescription_not_in: [String!]
+  longDescription_lt: String
+  longDescription_lte: String
+  longDescription_gt: String
+  longDescription_gte: String
+  longDescription_contains: String
+  longDescription_not_contains: String
+  longDescription_starts_with: String
+  longDescription_not_starts_with: String
+  longDescription_ends_with: String
+  longDescription_not_ends_with: String
+  AND: [BuisnessWhereInput!]
+  OR: [BuisnessWhereInput!]
+  NOT: [BuisnessWhereInput!]
+}
+
+input BuisnessWhereUniqueInput {
+  id: ID
+}
+
+type Contact {
+  id: ID!
+  profileImage: String
+  email: String
+  firstname: String!
+  lastname: String
+  nickname: String
+  telephone: String
+  mobile: String
+  position: String
+  notes: String
+}
+
+type ContactConnection {
+  pageInfo: PageInfo!
+  edges: [ContactEdge]!
+  aggregate: AggregateContact!
+}
+
+input ContactCreateInput {
+  id: ID
+  profileImage: String
+  email: String
+  firstname: String!
+  lastname: String
+  nickname: String
+  telephone: String
+  mobile: String
+  position: String
+  notes: String
+}
+
+input ContactCreateManyInput {
+  create: [ContactCreateInput!]
+  connect: [ContactWhereUniqueInput!]
+}
+
+type ContactEdge {
+  node: Contact!
+  cursor: String!
+}
+
+enum ContactOrderByInput {
+  id_ASC
+  id_DESC
+  profileImage_ASC
+  profileImage_DESC
+  email_ASC
+  email_DESC
+  firstname_ASC
+  firstname_DESC
+  lastname_ASC
+  lastname_DESC
+  nickname_ASC
+  nickname_DESC
+  telephone_ASC
+  telephone_DESC
+  mobile_ASC
+  mobile_DESC
+  position_ASC
+  position_DESC
+  notes_ASC
+  notes_DESC
+}
+
+type ContactPreviousValues {
+  id: ID!
+  profileImage: String
+  email: String
+  firstname: String!
+  lastname: String
+  nickname: String
+  telephone: String
+  mobile: String
+  position: String
+  notes: String
+}
+
+input ContactScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  profileImage: String
+  profileImage_not: String
+  profileImage_in: [String!]
+  profileImage_not_in: [String!]
+  profileImage_lt: String
+  profileImage_lte: String
+  profileImage_gt: String
+  profileImage_gte: String
+  profileImage_contains: String
+  profileImage_not_contains: String
+  profileImage_starts_with: String
+  profileImage_not_starts_with: String
+  profileImage_ends_with: String
+  profileImage_not_ends_with: String
+  email: String
+  email_not: String
+  email_in: [String!]
+  email_not_in: [String!]
+  email_lt: String
+  email_lte: String
+  email_gt: String
+  email_gte: String
+  email_contains: String
+  email_not_contains: String
+  email_starts_with: String
+  email_not_starts_with: String
+  email_ends_with: String
+  email_not_ends_with: String
+  firstname: String
+  firstname_not: String
+  firstname_in: [String!]
+  firstname_not_in: [String!]
+  firstname_lt: String
+  firstname_lte: String
+  firstname_gt: String
+  firstname_gte: String
+  firstname_contains: String
+  firstname_not_contains: String
+  firstname_starts_with: String
+  firstname_not_starts_with: String
+  firstname_ends_with: String
+  firstname_not_ends_with: String
+  lastname: String
+  lastname_not: String
+  lastname_in: [String!]
+  lastname_not_in: [String!]
+  lastname_lt: String
+  lastname_lte: String
+  lastname_gt: String
+  lastname_gte: String
+  lastname_contains: String
+  lastname_not_contains: String
+  lastname_starts_with: String
+  lastname_not_starts_with: String
+  lastname_ends_with: String
+  lastname_not_ends_with: String
+  nickname: String
+  nickname_not: String
+  nickname_in: [String!]
+  nickname_not_in: [String!]
+  nickname_lt: String
+  nickname_lte: String
+  nickname_gt: String
+  nickname_gte: String
+  nickname_contains: String
+  nickname_not_contains: String
+  nickname_starts_with: String
+  nickname_not_starts_with: String
+  nickname_ends_with: String
+  nickname_not_ends_with: String
+  telephone: String
+  telephone_not: String
+  telephone_in: [String!]
+  telephone_not_in: [String!]
+  telephone_lt: String
+  telephone_lte: String
+  telephone_gt: String
+  telephone_gte: String
+  telephone_contains: String
+  telephone_not_contains: String
+  telephone_starts_with: String
+  telephone_not_starts_with: String
+  telephone_ends_with: String
+  telephone_not_ends_with: String
+  mobile: String
+  mobile_not: String
+  mobile_in: [String!]
+  mobile_not_in: [String!]
+  mobile_lt: String
+  mobile_lte: String
+  mobile_gt: String
+  mobile_gte: String
+  mobile_contains: String
+  mobile_not_contains: String
+  mobile_starts_with: String
+  mobile_not_starts_with: String
+  mobile_ends_with: String
+  mobile_not_ends_with: String
+  position: String
+  position_not: String
+  position_in: [String!]
+  position_not_in: [String!]
+  position_lt: String
+  position_lte: String
+  position_gt: String
+  position_gte: String
+  position_contains: String
+  position_not_contains: String
+  position_starts_with: String
+  position_not_starts_with: String
+  position_ends_with: String
+  position_not_ends_with: String
+  notes: String
+  notes_not: String
+  notes_in: [String!]
+  notes_not_in: [String!]
+  notes_lt: String
+  notes_lte: String
+  notes_gt: String
+  notes_gte: String
+  notes_contains: String
+  notes_not_contains: String
+  notes_starts_with: String
+  notes_not_starts_with: String
+  notes_ends_with: String
+  notes_not_ends_with: String
+  AND: [ContactScalarWhereInput!]
+  OR: [ContactScalarWhereInput!]
+  NOT: [ContactScalarWhereInput!]
+}
+
+type ContactSubscriptionPayload {
+  mutation: MutationType!
+  node: Contact
+  updatedFields: [String!]
+  previousValues: ContactPreviousValues
+}
+
+input ContactSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: ContactWhereInput
+  AND: [ContactSubscriptionWhereInput!]
+  OR: [ContactSubscriptionWhereInput!]
+  NOT: [ContactSubscriptionWhereInput!]
+}
+
+input ContactUpdateDataInput {
+  profileImage: String
+  email: String
+  firstname: String
+  lastname: String
+  nickname: String
+  telephone: String
+  mobile: String
+  position: String
+  notes: String
+}
+
+input ContactUpdateInput {
+  profileImage: String
+  email: String
+  firstname: String
+  lastname: String
+  nickname: String
+  telephone: String
+  mobile: String
+  position: String
+  notes: String
+}
+
+input ContactUpdateManyDataInput {
+  profileImage: String
+  email: String
+  firstname: String
+  lastname: String
+  nickname: String
+  telephone: String
+  mobile: String
+  position: String
+  notes: String
+}
+
+input ContactUpdateManyInput {
+  create: [ContactCreateInput!]
+  update: [ContactUpdateWithWhereUniqueNestedInput!]
+  upsert: [ContactUpsertWithWhereUniqueNestedInput!]
+  delete: [ContactWhereUniqueInput!]
+  connect: [ContactWhereUniqueInput!]
+  set: [ContactWhereUniqueInput!]
+  disconnect: [ContactWhereUniqueInput!]
+  deleteMany: [ContactScalarWhereInput!]
+  updateMany: [ContactUpdateManyWithWhereNestedInput!]
+}
+
+input ContactUpdateManyMutationInput {
+  profileImage: String
+  email: String
+  firstname: String
+  lastname: String
+  nickname: String
+  telephone: String
+  mobile: String
+  position: String
+  notes: String
+}
+
+input ContactUpdateManyWithWhereNestedInput {
+  where: ContactScalarWhereInput!
+  data: ContactUpdateManyDataInput!
+}
+
+input ContactUpdateWithWhereUniqueNestedInput {
+  where: ContactWhereUniqueInput!
+  data: ContactUpdateDataInput!
+}
+
+input ContactUpsertWithWhereUniqueNestedInput {
+  where: ContactWhereUniqueInput!
+  update: ContactUpdateDataInput!
+  create: ContactCreateInput!
+}
+
+input ContactWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  profileImage: String
+  profileImage_not: String
+  profileImage_in: [String!]
+  profileImage_not_in: [String!]
+  profileImage_lt: String
+  profileImage_lte: String
+  profileImage_gt: String
+  profileImage_gte: String
+  profileImage_contains: String
+  profileImage_not_contains: String
+  profileImage_starts_with: String
+  profileImage_not_starts_with: String
+  profileImage_ends_with: String
+  profileImage_not_ends_with: String
+  email: String
+  email_not: String
+  email_in: [String!]
+  email_not_in: [String!]
+  email_lt: String
+  email_lte: String
+  email_gt: String
+  email_gte: String
+  email_contains: String
+  email_not_contains: String
+  email_starts_with: String
+  email_not_starts_with: String
+  email_ends_with: String
+  email_not_ends_with: String
+  firstname: String
+  firstname_not: String
+  firstname_in: [String!]
+  firstname_not_in: [String!]
+  firstname_lt: String
+  firstname_lte: String
+  firstname_gt: String
+  firstname_gte: String
+  firstname_contains: String
+  firstname_not_contains: String
+  firstname_starts_with: String
+  firstname_not_starts_with: String
+  firstname_ends_with: String
+  firstname_not_ends_with: String
+  lastname: String
+  lastname_not: String
+  lastname_in: [String!]
+  lastname_not_in: [String!]
+  lastname_lt: String
+  lastname_lte: String
+  lastname_gt: String
+  lastname_gte: String
+  lastname_contains: String
+  lastname_not_contains: String
+  lastname_starts_with: String
+  lastname_not_starts_with: String
+  lastname_ends_with: String
+  lastname_not_ends_with: String
+  nickname: String
+  nickname_not: String
+  nickname_in: [String!]
+  nickname_not_in: [String!]
+  nickname_lt: String
+  nickname_lte: String
+  nickname_gt: String
+  nickname_gte: String
+  nickname_contains: String
+  nickname_not_contains: String
+  nickname_starts_with: String
+  nickname_not_starts_with: String
+  nickname_ends_with: String
+  nickname_not_ends_with: String
+  telephone: String
+  telephone_not: String
+  telephone_in: [String!]
+  telephone_not_in: [String!]
+  telephone_lt: String
+  telephone_lte: String
+  telephone_gt: String
+  telephone_gte: String
+  telephone_contains: String
+  telephone_not_contains: String
+  telephone_starts_with: String
+  telephone_not_starts_with: String
+  telephone_ends_with: String
+  telephone_not_ends_with: String
+  mobile: String
+  mobile_not: String
+  mobile_in: [String!]
+  mobile_not_in: [String!]
+  mobile_lt: String
+  mobile_lte: String
+  mobile_gt: String
+  mobile_gte: String
+  mobile_contains: String
+  mobile_not_contains: String
+  mobile_starts_with: String
+  mobile_not_starts_with: String
+  mobile_ends_with: String
+  mobile_not_ends_with: String
+  position: String
+  position_not: String
+  position_in: [String!]
+  position_not_in: [String!]
+  position_lt: String
+  position_lte: String
+  position_gt: String
+  position_gte: String
+  position_contains: String
+  position_not_contains: String
+  position_starts_with: String
+  position_not_starts_with: String
+  position_ends_with: String
+  position_not_ends_with: String
+  notes: String
+  notes_not: String
+  notes_in: [String!]
+  notes_not_in: [String!]
+  notes_lt: String
+  notes_lte: String
+  notes_gt: String
+  notes_gte: String
+  notes_contains: String
+  notes_not_contains: String
+  notes_starts_with: String
+  notes_not_starts_with: String
+  notes_ends_with: String
+  notes_not_ends_with: String
+  AND: [ContactWhereInput!]
+  OR: [ContactWhereInput!]
+  NOT: [ContactWhereInput!]
+}
+
+input ContactWhereUniqueInput {
+  id: ID
+}
+
+type CriteriaCalculator {
+  id: ID!
+  status: Int!
+  required: Boolean!
+  milestone: Boolean!
+}
+
+type CriteriaCalculatorConnection {
+  pageInfo: PageInfo!
+  edges: [CriteriaCalculatorEdge]!
+  aggregate: AggregateCriteriaCalculator!
+}
+
+input CriteriaCalculatorCreateInput {
+  id: ID
+  status: Int!
+  required: Boolean!
+  milestone: Boolean!
+}
+
+input CriteriaCalculatorCreateOneInput {
+  create: CriteriaCalculatorCreateInput
+  connect: CriteriaCalculatorWhereUniqueInput
+}
+
+type CriteriaCalculatorEdge {
+  node: CriteriaCalculator!
+  cursor: String!
+}
+
+enum CriteriaCalculatorOrderByInput {
+  id_ASC
+  id_DESC
+  status_ASC
+  status_DESC
+  required_ASC
+  required_DESC
+  milestone_ASC
+  milestone_DESC
+}
+
+type CriteriaCalculatorPreviousValues {
+  id: ID!
+  status: Int!
+  required: Boolean!
+  milestone: Boolean!
+}
+
+type CriteriaCalculatorSubscriptionPayload {
+  mutation: MutationType!
+  node: CriteriaCalculator
+  updatedFields: [String!]
+  previousValues: CriteriaCalculatorPreviousValues
+}
+
+input CriteriaCalculatorSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: CriteriaCalculatorWhereInput
+  AND: [CriteriaCalculatorSubscriptionWhereInput!]
+  OR: [CriteriaCalculatorSubscriptionWhereInput!]
+  NOT: [CriteriaCalculatorSubscriptionWhereInput!]
+}
+
+input CriteriaCalculatorUpdateDataInput {
+  status: Int
+  required: Boolean
+  milestone: Boolean
+}
+
+input CriteriaCalculatorUpdateInput {
+  status: Int
+  required: Boolean
+  milestone: Boolean
+}
+
+input CriteriaCalculatorUpdateManyMutationInput {
+  status: Int
+  required: Boolean
+  milestone: Boolean
+}
+
+input CriteriaCalculatorUpdateOneInput {
+  create: CriteriaCalculatorCreateInput
+  update: CriteriaCalculatorUpdateDataInput
+  upsert: CriteriaCalculatorUpsertNestedInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: CriteriaCalculatorWhereUniqueInput
+}
+
+input CriteriaCalculatorUpsertNestedInput {
+  update: CriteriaCalculatorUpdateDataInput!
+  create: CriteriaCalculatorCreateInput!
+}
+
+input CriteriaCalculatorWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  status: Int
+  status_not: Int
+  status_in: [Int!]
+  status_not_in: [Int!]
+  status_lt: Int
+  status_lte: Int
+  status_gt: Int
+  status_gte: Int
+  required: Boolean
+  required_not: Boolean
+  milestone: Boolean
+  milestone_not: Boolean
+  AND: [CriteriaCalculatorWhereInput!]
+  OR: [CriteriaCalculatorWhereInput!]
+  NOT: [CriteriaCalculatorWhereInput!]
+}
+
+input CriteriaCalculatorWhereUniqueInput {
+  id: ID
+}
+
+type Customer {
+  id: Int!
+  logo: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String!
+  branch(where: BranchWhereInput, orderBy: BranchOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Branch!]
+  classification: String
+  projectManager(where: ProjectManagerWhereInput, orderBy: ProjectManagerOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [ProjectManager!]
+  notes: String
+}
+
+type CustomerConnection {
+  pageInfo: PageInfo!
+  edges: [CustomerEdge]!
+  aggregate: AggregateCustomer!
+}
+
+input CustomerCreateInput {
+  id: Int
+  logo: String
+  name: String!
+  branch: BranchCreateManyInput
+  classification: String
+  projectManager: ProjectManagerCreateManyInput
+  notes: String
+}
+
+input CustomerCreateOneInput {
+  create: CustomerCreateInput
+  connect: CustomerWhereUniqueInput
+}
+
+type CustomerEdge {
+  node: Customer!
+  cursor: String!
+}
+
+enum CustomerOrderByInput {
+  id_ASC
+  id_DESC
+  logo_ASC
+  logo_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  name_ASC
+  name_DESC
+  classification_ASC
+  classification_DESC
+  notes_ASC
+  notes_DESC
+}
+
+type CustomerPreviousValues {
+  id: Int!
+  logo: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String!
+  classification: String
+  notes: String
+}
+
+type CustomerSubscriptionPayload {
+  mutation: MutationType!
+  node: Customer
+  updatedFields: [String!]
+  previousValues: CustomerPreviousValues
+}
+
+input CustomerSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: CustomerWhereInput
+  AND: [CustomerSubscriptionWhereInput!]
+  OR: [CustomerSubscriptionWhereInput!]
+  NOT: [CustomerSubscriptionWhereInput!]
+}
+
+input CustomerUpdateDataInput {
+  logo: String
+  name: String
+  branch: BranchUpdateManyInput
+  classification: String
+  projectManager: ProjectManagerUpdateManyInput
+  notes: String
+}
+
+input CustomerUpdateInput {
+  logo: String
+  name: String
+  branch: BranchUpdateManyInput
+  classification: String
+  projectManager: ProjectManagerUpdateManyInput
+  notes: String
+}
+
+input CustomerUpdateManyMutationInput {
+  logo: String
+  name: String
+  classification: String
+  notes: String
+}
+
+input CustomerUpdateOneRequiredInput {
+  create: CustomerCreateInput
+  update: CustomerUpdateDataInput
+  upsert: CustomerUpsertNestedInput
+  connect: CustomerWhereUniqueInput
+}
+
+input CustomerUpsertNestedInput {
+  update: CustomerUpdateDataInput!
+  create: CustomerCreateInput!
+}
+
+input CustomerWhereInput {
+  id: Int
+  id_not: Int
+  id_in: [Int!]
+  id_not_in: [Int!]
+  id_lt: Int
+  id_lte: Int
+  id_gt: Int
+  id_gte: Int
+  logo: String
+  logo_not: String
+  logo_in: [String!]
+  logo_not_in: [String!]
+  logo_lt: String
+  logo_lte: String
+  logo_gt: String
+  logo_gte: String
+  logo_contains: String
+  logo_not_contains: String
+  logo_starts_with: String
+  logo_not_starts_with: String
+  logo_ends_with: String
+  logo_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  branch_every: BranchWhereInput
+  branch_some: BranchWhereInput
+  branch_none: BranchWhereInput
+  classification: String
+  classification_not: String
+  classification_in: [String!]
+  classification_not_in: [String!]
+  classification_lt: String
+  classification_lte: String
+  classification_gt: String
+  classification_gte: String
+  classification_contains: String
+  classification_not_contains: String
+  classification_starts_with: String
+  classification_not_starts_with: String
+  classification_ends_with: String
+  classification_not_ends_with: String
+  projectManager_every: ProjectManagerWhereInput
+  projectManager_some: ProjectManagerWhereInput
+  projectManager_none: ProjectManagerWhereInput
+  notes: String
+  notes_not: String
+  notes_in: [String!]
+  notes_not_in: [String!]
+  notes_lt: String
+  notes_lte: String
+  notes_gt: String
+  notes_gte: String
+  notes_contains: String
+  notes_not_contains: String
+  notes_starts_with: String
+  notes_not_starts_with: String
+  notes_ends_with: String
+  notes_not_ends_with: String
+  AND: [CustomerWhereInput!]
+  OR: [CustomerWhereInput!]
+  NOT: [CustomerWhereInput!]
+}
+
+input CustomerWhereUniqueInput {
+  id: Int
+}
+
+scalar DateTime
+
+type Lead {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  customerName: String!
+  address: Address!
+  notes: String
+  products(where: ProductWhereInput, orderBy: ProductOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Product!]
+}
+
+type LeadConnection {
+  pageInfo: PageInfo!
+  edges: [LeadEdge]!
+  aggregate: AggregateLead!
+}
+
+input LeadCreateInput {
+  id: ID
+  customerName: String!
+  address: AddressCreateOneInput!
+  notes: String
+  products: ProductCreateManyInput
+}
+
+type LeadEdge {
+  node: Lead!
+  cursor: String!
+}
+
+enum LeadOrderByInput {
+  id_ASC
+  id_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  customerName_ASC
+  customerName_DESC
+  notes_ASC
+  notes_DESC
+}
+
+type LeadPreviousValues {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  customerName: String!
+  notes: String
+}
+
+type LeadSubscriptionPayload {
+  mutation: MutationType!
+  node: Lead
+  updatedFields: [String!]
+  previousValues: LeadPreviousValues
+}
+
+input LeadSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: LeadWhereInput
+  AND: [LeadSubscriptionWhereInput!]
+  OR: [LeadSubscriptionWhereInput!]
+  NOT: [LeadSubscriptionWhereInput!]
+}
+
+input LeadUpdateInput {
+  customerName: String
+  address: AddressUpdateOneRequiredInput
+  notes: String
+  products: ProductUpdateManyInput
+}
+
+input LeadUpdateManyMutationInput {
+  customerName: String
+  notes: String
+}
+
+input LeadWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  customerName: String
+  customerName_not: String
+  customerName_in: [String!]
+  customerName_not_in: [String!]
+  customerName_lt: String
+  customerName_lte: String
+  customerName_gt: String
+  customerName_gte: String
+  customerName_contains: String
+  customerName_not_contains: String
+  customerName_starts_with: String
+  customerName_not_starts_with: String
+  customerName_ends_with: String
+  customerName_not_ends_with: String
+  address: AddressWhereInput
+  notes: String
+  notes_not: String
+  notes_in: [String!]
+  notes_not_in: [String!]
+  notes_lt: String
+  notes_lte: String
+  notes_gt: String
+  notes_gte: String
+  notes_contains: String
+  notes_not_contains: String
+  notes_starts_with: String
+  notes_not_starts_with: String
+  notes_ends_with: String
+  notes_not_ends_with: String
+  products_every: ProductWhereInput
+  products_some: ProductWhereInput
+  products_none: ProductWhereInput
+  AND: [LeadWhereInput!]
+  OR: [LeadWhereInput!]
+  NOT: [LeadWhereInput!]
+}
+
+input LeadWhereUniqueInput {
+  id: ID
+}
+
+scalar Long
+
+type MainProject {
+  id: Int!
+  customer: Customer!
+  shortDescription: String!
+  status: Int!
+  projectManager(where: ProjectManagerWhereInput, orderBy: ProjectManagerOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [ProjectManager!]
+  notes: String
+  projects(where: ProjectWhereInput, orderBy: ProjectOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Project!]
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  phases: MainProjectPhases!
+}
+
+type MainProjectConnection {
+  pageInfo: PageInfo!
+  edges: [MainProjectEdge]!
+  aggregate: AggregateMainProject!
+}
+
+input MainProjectCreateInput {
+  id: Int
+  customer: CustomerCreateOneInput!
+  shortDescription: String!
+  status: Int!
+  projectManager: ProjectManagerCreateManyInput
+  notes: String
+  projects: ProjectCreateManyWithoutMainProjectInput
+  phases: MainProjectPhasesCreateOneInput!
+}
+
+input MainProjectCreateOneWithoutProjectsInput {
+  create: MainProjectCreateWithoutProjectsInput
+  connect: MainProjectWhereUniqueInput
+}
+
+input MainProjectCreateWithoutProjectsInput {
+  id: Int
+  customer: CustomerCreateOneInput!
+  shortDescription: String!
+  status: Int!
+  projectManager: ProjectManagerCreateManyInput
+  notes: String
+  phases: MainProjectPhasesCreateOneInput!
+}
+
+type MainProjectEdge {
+  node: MainProject!
+  cursor: String!
+}
+
+enum MainProjectOrderByInput {
+  id_ASC
+  id_DESC
+  shortDescription_ASC
+  shortDescription_DESC
+  status_ASC
+  status_DESC
+  notes_ASC
+  notes_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type MainProjectPhases {
+  id: ID!
+  salesphase: PhasePayload!
+}
+
+type MainProjectPhasesConnection {
+  pageInfo: PageInfo!
+  edges: [MainProjectPhasesEdge]!
+  aggregate: AggregateMainProjectPhases!
+}
+
+input MainProjectPhasesCreateInput {
+  id: ID
+  salesphase: PhasePayloadCreateOneInput!
+}
+
+input MainProjectPhasesCreateOneInput {
+  create: MainProjectPhasesCreateInput
+  connect: MainProjectPhasesWhereUniqueInput
+}
+
+type MainProjectPhasesEdge {
+  node: MainProjectPhases!
+  cursor: String!
+}
+
+enum MainProjectPhasesOrderByInput {
+  id_ASC
+  id_DESC
+}
+
+type MainProjectPhasesPreviousValues {
+  id: ID!
+}
+
+type MainProjectPhasesSubscriptionPayload {
+  mutation: MutationType!
+  node: MainProjectPhases
+  updatedFields: [String!]
+  previousValues: MainProjectPhasesPreviousValues
+}
+
+input MainProjectPhasesSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: MainProjectPhasesWhereInput
+  AND: [MainProjectPhasesSubscriptionWhereInput!]
+  OR: [MainProjectPhasesSubscriptionWhereInput!]
+  NOT: [MainProjectPhasesSubscriptionWhereInput!]
+}
+
+input MainProjectPhasesUpdateDataInput {
+  salesphase: PhasePayloadUpdateOneRequiredInput
+}
+
+input MainProjectPhasesUpdateInput {
+  salesphase: PhasePayloadUpdateOneRequiredInput
+}
+
+input MainProjectPhasesUpdateOneRequiredInput {
+  create: MainProjectPhasesCreateInput
+  update: MainProjectPhasesUpdateDataInput
+  upsert: MainProjectPhasesUpsertNestedInput
+  connect: MainProjectPhasesWhereUniqueInput
+}
+
+input MainProjectPhasesUpsertNestedInput {
+  update: MainProjectPhasesUpdateDataInput!
+  create: MainProjectPhasesCreateInput!
+}
+
+input MainProjectPhasesWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  salesphase: PhasePayloadWhereInput
+  AND: [MainProjectPhasesWhereInput!]
+  OR: [MainProjectPhasesWhereInput!]
+  NOT: [MainProjectPhasesWhereInput!]
+}
+
+input MainProjectPhasesWhereUniqueInput {
+  id: ID
+}
+
+type MainProjectPreviousValues {
+  id: Int!
+  shortDescription: String!
+  status: Int!
+  notes: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type MainProjectSubscriptionPayload {
+  mutation: MutationType!
+  node: MainProject
+  updatedFields: [String!]
+  previousValues: MainProjectPreviousValues
+}
+
+input MainProjectSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: MainProjectWhereInput
+  AND: [MainProjectSubscriptionWhereInput!]
+  OR: [MainProjectSubscriptionWhereInput!]
+  NOT: [MainProjectSubscriptionWhereInput!]
+}
+
+input MainProjectUpdateInput {
+  customer: CustomerUpdateOneRequiredInput
+  shortDescription: String
+  status: Int
+  projectManager: ProjectManagerUpdateManyInput
+  notes: String
+  projects: ProjectUpdateManyWithoutMainProjectInput
+  phases: MainProjectPhasesUpdateOneRequiredInput
+}
+
+input MainProjectUpdateManyMutationInput {
+  shortDescription: String
+  status: Int
+  notes: String
+}
+
+input MainProjectUpdateOneRequiredWithoutProjectsInput {
+  create: MainProjectCreateWithoutProjectsInput
+  update: MainProjectUpdateWithoutProjectsDataInput
+  upsert: MainProjectUpsertWithoutProjectsInput
+  connect: MainProjectWhereUniqueInput
+}
+
+input MainProjectUpdateWithoutProjectsDataInput {
+  customer: CustomerUpdateOneRequiredInput
+  shortDescription: String
+  status: Int
+  projectManager: ProjectManagerUpdateManyInput
+  notes: String
+  phases: MainProjectPhasesUpdateOneRequiredInput
+}
+
+input MainProjectUpsertWithoutProjectsInput {
+  update: MainProjectUpdateWithoutProjectsDataInput!
+  create: MainProjectCreateWithoutProjectsInput!
+}
+
+input MainProjectWhereInput {
+  id: Int
+  id_not: Int
+  id_in: [Int!]
+  id_not_in: [Int!]
+  id_lt: Int
+  id_lte: Int
+  id_gt: Int
+  id_gte: Int
+  customer: CustomerWhereInput
+  shortDescription: String
+  shortDescription_not: String
+  shortDescription_in: [String!]
+  shortDescription_not_in: [String!]
+  shortDescription_lt: String
+  shortDescription_lte: String
+  shortDescription_gt: String
+  shortDescription_gte: String
+  shortDescription_contains: String
+  shortDescription_not_contains: String
+  shortDescription_starts_with: String
+  shortDescription_not_starts_with: String
+  shortDescription_ends_with: String
+  shortDescription_not_ends_with: String
+  status: Int
+  status_not: Int
+  status_in: [Int!]
+  status_not_in: [Int!]
+  status_lt: Int
+  status_lte: Int
+  status_gt: Int
+  status_gte: Int
+  projectManager_every: ProjectManagerWhereInput
+  projectManager_some: ProjectManagerWhereInput
+  projectManager_none: ProjectManagerWhereInput
+  notes: String
+  notes_not: String
+  notes_in: [String!]
+  notes_not_in: [String!]
+  notes_lt: String
+  notes_lte: String
+  notes_gt: String
+  notes_gte: String
+  notes_contains: String
+  notes_not_contains: String
+  notes_starts_with: String
+  notes_not_starts_with: String
+  notes_ends_with: String
+  notes_not_ends_with: String
+  projects_every: ProjectWhereInput
+  projects_some: ProjectWhereInput
+  projects_none: ProjectWhereInput
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  phases: MainProjectPhasesWhereInput
+  AND: [MainProjectWhereInput!]
+  OR: [MainProjectWhereInput!]
+  NOT: [MainProjectWhereInput!]
+}
+
+input MainProjectWhereUniqueInput {
+  id: Int
+}
+
+type Mutation {
+  createAddress(data: AddressCreateInput!): Address!
+  updateAddress(data: AddressUpdateInput!, where: AddressWhereUniqueInput!): Address
+  updateManyAddresses(data: AddressUpdateManyMutationInput!, where: AddressWhereInput): BatchPayload!
+  upsertAddress(where: AddressWhereUniqueInput!, create: AddressCreateInput!, update: AddressUpdateInput!): Address!
+  deleteAddress(where: AddressWhereUniqueInput!): Address
+  deleteManyAddresses(where: AddressWhereInput): BatchPayload!
+  createAnalyzeCustomerForm(data: AnalyzeCustomerFormCreateInput!): AnalyzeCustomerForm!
+  updateAnalyzeCustomerForm(data: AnalyzeCustomerFormUpdateInput!, where: AnalyzeCustomerFormWhereUniqueInput!): AnalyzeCustomerForm
+  updateManyAnalyzeCustomerForms(data: AnalyzeCustomerFormUpdateManyMutationInput!, where: AnalyzeCustomerFormWhereInput): BatchPayload!
+  upsertAnalyzeCustomerForm(where: AnalyzeCustomerFormWhereUniqueInput!, create: AnalyzeCustomerFormCreateInput!, update: AnalyzeCustomerFormUpdateInput!): AnalyzeCustomerForm!
+  deleteAnalyzeCustomerForm(where: AnalyzeCustomerFormWhereUniqueInput!): AnalyzeCustomerForm
+  deleteManyAnalyzeCustomerForms(where: AnalyzeCustomerFormWhereInput): BatchPayload!
+  createBranch(data: BranchCreateInput!): Branch!
+  updateBranch(data: BranchUpdateInput!, where: BranchWhereUniqueInput!): Branch
+  updateManyBranches(data: BranchUpdateManyMutationInput!, where: BranchWhereInput): BatchPayload!
+  upsertBranch(where: BranchWhereUniqueInput!, create: BranchCreateInput!, update: BranchUpdateInput!): Branch!
+  deleteBranch(where: BranchWhereUniqueInput!): Branch
+  deleteManyBranches(where: BranchWhereInput): BatchPayload!
+  createBuisness(data: BuisnessCreateInput!): Buisness!
+  updateBuisness(data: BuisnessUpdateInput!, where: BuisnessWhereUniqueInput!): Buisness
+  updateManyBuisnesses(data: BuisnessUpdateManyMutationInput!, where: BuisnessWhereInput): BatchPayload!
+  upsertBuisness(where: BuisnessWhereUniqueInput!, create: BuisnessCreateInput!, update: BuisnessUpdateInput!): Buisness!
+  deleteBuisness(where: BuisnessWhereUniqueInput!): Buisness
+  deleteManyBuisnesses(where: BuisnessWhereInput): BatchPayload!
+  createContact(data: ContactCreateInput!): Contact!
+  updateContact(data: ContactUpdateInput!, where: ContactWhereUniqueInput!): Contact
+  updateManyContacts(data: ContactUpdateManyMutationInput!, where: ContactWhereInput): BatchPayload!
+  upsertContact(where: ContactWhereUniqueInput!, create: ContactCreateInput!, update: ContactUpdateInput!): Contact!
+  deleteContact(where: ContactWhereUniqueInput!): Contact
+  deleteManyContacts(where: ContactWhereInput): BatchPayload!
+  createCriteriaCalculator(data: CriteriaCalculatorCreateInput!): CriteriaCalculator!
+  updateCriteriaCalculator(data: CriteriaCalculatorUpdateInput!, where: CriteriaCalculatorWhereUniqueInput!): CriteriaCalculator
+  updateManyCriteriaCalculators(data: CriteriaCalculatorUpdateManyMutationInput!, where: CriteriaCalculatorWhereInput): BatchPayload!
+  upsertCriteriaCalculator(where: CriteriaCalculatorWhereUniqueInput!, create: CriteriaCalculatorCreateInput!, update: CriteriaCalculatorUpdateInput!): CriteriaCalculator!
+  deleteCriteriaCalculator(where: CriteriaCalculatorWhereUniqueInput!): CriteriaCalculator
+  deleteManyCriteriaCalculators(where: CriteriaCalculatorWhereInput): BatchPayload!
+  createCustomer(data: CustomerCreateInput!): Customer!
+  updateCustomer(data: CustomerUpdateInput!, where: CustomerWhereUniqueInput!): Customer
+  updateManyCustomers(data: CustomerUpdateManyMutationInput!, where: CustomerWhereInput): BatchPayload!
+  upsertCustomer(where: CustomerWhereUniqueInput!, create: CustomerCreateInput!, update: CustomerUpdateInput!): Customer!
+  deleteCustomer(where: CustomerWhereUniqueInput!): Customer
+  deleteManyCustomers(where: CustomerWhereInput): BatchPayload!
+  createLead(data: LeadCreateInput!): Lead!
+  updateLead(data: LeadUpdateInput!, where: LeadWhereUniqueInput!): Lead
+  updateManyLeads(data: LeadUpdateManyMutationInput!, where: LeadWhereInput): BatchPayload!
+  upsertLead(where: LeadWhereUniqueInput!, create: LeadCreateInput!, update: LeadUpdateInput!): Lead!
+  deleteLead(where: LeadWhereUniqueInput!): Lead
+  deleteManyLeads(where: LeadWhereInput): BatchPayload!
+  createMainProject(data: MainProjectCreateInput!): MainProject!
+  updateMainProject(data: MainProjectUpdateInput!, where: MainProjectWhereUniqueInput!): MainProject
+  updateManyMainProjects(data: MainProjectUpdateManyMutationInput!, where: MainProjectWhereInput): BatchPayload!
+  upsertMainProject(where: MainProjectWhereUniqueInput!, create: MainProjectCreateInput!, update: MainProjectUpdateInput!): MainProject!
+  deleteMainProject(where: MainProjectWhereUniqueInput!): MainProject
+  deleteManyMainProjects(where: MainProjectWhereInput): BatchPayload!
+  createMainProjectPhases(data: MainProjectPhasesCreateInput!): MainProjectPhases!
+  updateMainProjectPhases(data: MainProjectPhasesUpdateInput!, where: MainProjectPhasesWhereUniqueInput!): MainProjectPhases
+  upsertMainProjectPhases(where: MainProjectPhasesWhereUniqueInput!, create: MainProjectPhasesCreateInput!, update: MainProjectPhasesUpdateInput!): MainProjectPhases!
+  deleteMainProjectPhases(where: MainProjectPhasesWhereUniqueInput!): MainProjectPhases
+  deleteManyMainProjectPhaseses(where: MainProjectPhasesWhereInput): BatchPayload!
+  createPermission(data: PermissionCreateInput!): Permission!
+  updatePermission(data: PermissionUpdateInput!, where: PermissionWhereUniqueInput!): Permission
+  updateManyPermissions(data: PermissionUpdateManyMutationInput!, where: PermissionWhereInput): BatchPayload!
+  upsertPermission(where: PermissionWhereUniqueInput!, create: PermissionCreateInput!, update: PermissionUpdateInput!): Permission!
+  deletePermission(where: PermissionWhereUniqueInput!): Permission
+  deleteManyPermissions(where: PermissionWhereInput): BatchPayload!
+  createPermissionAction(data: PermissionActionCreateInput!): PermissionAction!
+  updatePermissionAction(data: PermissionActionUpdateInput!, where: PermissionActionWhereUniqueInput!): PermissionAction
+  updateManyPermissionActions(data: PermissionActionUpdateManyMutationInput!, where: PermissionActionWhereInput): BatchPayload!
+  upsertPermissionAction(where: PermissionActionWhereUniqueInput!, create: PermissionActionCreateInput!, update: PermissionActionUpdateInput!): PermissionAction!
+  deletePermissionAction(where: PermissionActionWhereUniqueInput!): PermissionAction
+  deleteManyPermissionActions(where: PermissionActionWhereInput): BatchPayload!
+  createPhaseFormsPayload(data: PhaseFormsPayloadCreateInput!): PhaseFormsPayload!
+  updatePhaseFormsPayload(data: PhaseFormsPayloadUpdateInput!, where: PhaseFormsPayloadWhereUniqueInput!): PhaseFormsPayload
+  updateManyPhaseFormsPayloads(data: PhaseFormsPayloadUpdateManyMutationInput!, where: PhaseFormsPayloadWhereInput): BatchPayload!
+  upsertPhaseFormsPayload(where: PhaseFormsPayloadWhereUniqueInput!, create: PhaseFormsPayloadCreateInput!, update: PhaseFormsPayloadUpdateInput!): PhaseFormsPayload!
+  deletePhaseFormsPayload(where: PhaseFormsPayloadWhereUniqueInput!): PhaseFormsPayload
+  deleteManyPhaseFormsPayloads(where: PhaseFormsPayloadWhereInput): BatchPayload!
+  createPhasePayload(data: PhasePayloadCreateInput!): PhasePayload!
+  updatePhasePayload(data: PhasePayloadUpdateInput!, where: PhasePayloadWhereUniqueInput!): PhasePayload
+  updateManyPhasePayloads(data: PhasePayloadUpdateManyMutationInput!, where: PhasePayloadWhereInput): BatchPayload!
+  upsertPhasePayload(where: PhasePayloadWhereUniqueInput!, create: PhasePayloadCreateInput!, update: PhasePayloadUpdateInput!): PhasePayload!
+  deletePhasePayload(where: PhasePayloadWhereUniqueInput!): PhasePayload
+  deleteManyPhasePayloads(where: PhasePayloadWhereInput): BatchPayload!
+  createProduct(data: ProductCreateInput!): Product!
+  updateProduct(data: ProductUpdateInput!, where: ProductWhereUniqueInput!): Product
+  updateManyProducts(data: ProductUpdateManyMutationInput!, where: ProductWhereInput): BatchPayload!
+  upsertProduct(where: ProductWhereUniqueInput!, create: ProductCreateInput!, update: ProductUpdateInput!): Product!
+  deleteProduct(where: ProductWhereUniqueInput!): Product
+  deleteManyProducts(where: ProductWhereInput): BatchPayload!
+  createProject(data: ProjectCreateInput!): Project!
+  updateProject(data: ProjectUpdateInput!, where: ProjectWhereUniqueInput!): Project
+  updateManyProjects(data: ProjectUpdateManyMutationInput!, where: ProjectWhereInput): BatchPayload!
+  upsertProject(where: ProjectWhereUniqueInput!, create: ProjectCreateInput!, update: ProjectUpdateInput!): Project!
+  deleteProject(where: ProjectWhereUniqueInput!): Project
+  deleteManyProjects(where: ProjectWhereInput): BatchPayload!
+  createProjectForms(data: ProjectFormsCreateInput!): ProjectForms!
+  updateProjectForms(data: ProjectFormsUpdateInput!, where: ProjectFormsWhereUniqueInput!): ProjectForms
+  upsertProjectForms(where: ProjectFormsWhereUniqueInput!, create: ProjectFormsCreateInput!, update: ProjectFormsUpdateInput!): ProjectForms!
+  deleteProjectForms(where: ProjectFormsWhereUniqueInput!): ProjectForms
+  deleteManyProjectFormses(where: ProjectFormsWhereInput): BatchPayload!
+  createProjectManager(data: ProjectManagerCreateInput!): ProjectManager!
+  updateProjectManager(data: ProjectManagerUpdateInput!, where: ProjectManagerWhereUniqueInput!): ProjectManager
+  updateManyProjectManagers(data: ProjectManagerUpdateManyMutationInput!, where: ProjectManagerWhereInput): BatchPayload!
+  upsertProjectManager(where: ProjectManagerWhereUniqueInput!, create: ProjectManagerCreateInput!, update: ProjectManagerUpdateInput!): ProjectManager!
+  deleteProjectManager(where: ProjectManagerWhereUniqueInput!): ProjectManager
+  deleteManyProjectManagers(where: ProjectManagerWhereInput): BatchPayload!
+  createProjectPhase(data: ProjectPhaseCreateInput!): ProjectPhase!
+  updateProjectPhase(data: ProjectPhaseUpdateInput!, where: ProjectPhaseWhereUniqueInput!): ProjectPhase
+  updateManyProjectPhases(data: ProjectPhaseUpdateManyMutationInput!, where: ProjectPhaseWhereInput): BatchPayload!
+  upsertProjectPhase(where: ProjectPhaseWhereUniqueInput!, create: ProjectPhaseCreateInput!, update: ProjectPhaseUpdateInput!): ProjectPhase!
+  deleteProjectPhase(where: ProjectPhaseWhereUniqueInput!): ProjectPhase
+  deleteManyProjectPhases(where: ProjectPhaseWhereInput): BatchPayload!
+  createUser(data: UserCreateInput!): User!
+  updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
+  updateManyUsers(data: UserUpdateManyMutationInput!, where: UserWhereInput): BatchPayload!
+  upsertUser(where: UserWhereUniqueInput!, create: UserCreateInput!, update: UserUpdateInput!): User!
+  deleteUser(where: UserWhereUniqueInput!): User
+  deleteManyUsers(where: UserWhereInput): BatchPayload!
+}
+
+enum MutationType {
+  CREATED
+  UPDATED
+  DELETED
+}
+
+interface Node {
+  id: ID!
+}
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+  endCursor: String
+}
+
+type Permission {
+  id: ID!
+  buisnessObj: String!
+  actions(where: PermissionActionWhereInput, orderBy: PermissionActionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [PermissionAction!]
+}
+
+type PermissionAction {
+  id: ID!
+  type: String
+  users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User!]
+  roles: [String!]!
+}
+
+type PermissionActionConnection {
+  pageInfo: PageInfo!
+  edges: [PermissionActionEdge]!
+  aggregate: AggregatePermissionAction!
+}
+
+input PermissionActionCreateInput {
+  id: ID
+  type: String
+  users: UserCreateManyInput
+  roles: PermissionActionCreaterolesInput
+}
+
+input PermissionActionCreateManyInput {
+  create: [PermissionActionCreateInput!]
+  connect: [PermissionActionWhereUniqueInput!]
+}
+
+input PermissionActionCreaterolesInput {
+  set: [String!]
+}
+
+type PermissionActionEdge {
+  node: PermissionAction!
+  cursor: String!
+}
+
+enum PermissionActionOrderByInput {
+  id_ASC
+  id_DESC
+  type_ASC
+  type_DESC
+}
+
+type PermissionActionPreviousValues {
+  id: ID!
+  type: String
+  roles: [String!]!
+}
+
+input PermissionActionScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  type: String
+  type_not: String
+  type_in: [String!]
+  type_not_in: [String!]
+  type_lt: String
+  type_lte: String
+  type_gt: String
+  type_gte: String
+  type_contains: String
+  type_not_contains: String
+  type_starts_with: String
+  type_not_starts_with: String
+  type_ends_with: String
+  type_not_ends_with: String
+  AND: [PermissionActionScalarWhereInput!]
+  OR: [PermissionActionScalarWhereInput!]
+  NOT: [PermissionActionScalarWhereInput!]
+}
+
+type PermissionActionSubscriptionPayload {
+  mutation: MutationType!
+  node: PermissionAction
+  updatedFields: [String!]
+  previousValues: PermissionActionPreviousValues
+}
+
+input PermissionActionSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: PermissionActionWhereInput
+  AND: [PermissionActionSubscriptionWhereInput!]
+  OR: [PermissionActionSubscriptionWhereInput!]
+  NOT: [PermissionActionSubscriptionWhereInput!]
+}
+
+input PermissionActionUpdateDataInput {
+  type: String
+  users: UserUpdateManyInput
+  roles: PermissionActionUpdaterolesInput
+}
+
+input PermissionActionUpdateInput {
+  type: String
+  users: UserUpdateManyInput
+  roles: PermissionActionUpdaterolesInput
+}
+
+input PermissionActionUpdateManyDataInput {
+  type: String
+  roles: PermissionActionUpdaterolesInput
+}
+
+input PermissionActionUpdateManyInput {
+  create: [PermissionActionCreateInput!]
+  update: [PermissionActionUpdateWithWhereUniqueNestedInput!]
+  upsert: [PermissionActionUpsertWithWhereUniqueNestedInput!]
+  delete: [PermissionActionWhereUniqueInput!]
+  connect: [PermissionActionWhereUniqueInput!]
+  set: [PermissionActionWhereUniqueInput!]
+  disconnect: [PermissionActionWhereUniqueInput!]
+  deleteMany: [PermissionActionScalarWhereInput!]
+  updateMany: [PermissionActionUpdateManyWithWhereNestedInput!]
+}
+
+input PermissionActionUpdateManyMutationInput {
+  type: String
+  roles: PermissionActionUpdaterolesInput
+}
+
+input PermissionActionUpdateManyWithWhereNestedInput {
+  where: PermissionActionScalarWhereInput!
+  data: PermissionActionUpdateManyDataInput!
+}
+
+input PermissionActionUpdaterolesInput {
+  set: [String!]
+}
+
+input PermissionActionUpdateWithWhereUniqueNestedInput {
+  where: PermissionActionWhereUniqueInput!
+  data: PermissionActionUpdateDataInput!
+}
+
+input PermissionActionUpsertWithWhereUniqueNestedInput {
+  where: PermissionActionWhereUniqueInput!
+  update: PermissionActionUpdateDataInput!
+  create: PermissionActionCreateInput!
+}
+
+input PermissionActionWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  type: String
+  type_not: String
+  type_in: [String!]
+  type_not_in: [String!]
+  type_lt: String
+  type_lte: String
+  type_gt: String
+  type_gte: String
+  type_contains: String
+  type_not_contains: String
+  type_starts_with: String
+  type_not_starts_with: String
+  type_ends_with: String
+  type_not_ends_with: String
+  users_every: UserWhereInput
+  users_some: UserWhereInput
+  users_none: UserWhereInput
+  AND: [PermissionActionWhereInput!]
+  OR: [PermissionActionWhereInput!]
+  NOT: [PermissionActionWhereInput!]
+}
+
+input PermissionActionWhereUniqueInput {
+  id: ID
+}
+
+type PermissionConnection {
+  pageInfo: PageInfo!
+  edges: [PermissionEdge]!
+  aggregate: AggregatePermission!
+}
+
+input PermissionCreateInput {
+  id: ID
+  buisnessObj: String!
+  actions: PermissionActionCreateManyInput
+}
+
+type PermissionEdge {
+  node: Permission!
+  cursor: String!
+}
+
+enum PermissionOrderByInput {
+  id_ASC
+  id_DESC
+  buisnessObj_ASC
+  buisnessObj_DESC
+}
+
+type PermissionPreviousValues {
+  id: ID!
+  buisnessObj: String!
+}
+
+type PermissionSubscriptionPayload {
+  mutation: MutationType!
+  node: Permission
+  updatedFields: [String!]
+  previousValues: PermissionPreviousValues
+}
+
+input PermissionSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: PermissionWhereInput
+  AND: [PermissionSubscriptionWhereInput!]
+  OR: [PermissionSubscriptionWhereInput!]
+  NOT: [PermissionSubscriptionWhereInput!]
+}
+
+input PermissionUpdateInput {
+  buisnessObj: String
+  actions: PermissionActionUpdateManyInput
+}
+
+input PermissionUpdateManyMutationInput {
+  buisnessObj: String
+}
+
+input PermissionWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  buisnessObj: String
+  buisnessObj_not: String
+  buisnessObj_in: [String!]
+  buisnessObj_not_in: [String!]
+  buisnessObj_lt: String
+  buisnessObj_lte: String
+  buisnessObj_gt: String
+  buisnessObj_gte: String
+  buisnessObj_contains: String
+  buisnessObj_not_contains: String
+  buisnessObj_starts_with: String
+  buisnessObj_not_starts_with: String
+  buisnessObj_ends_with: String
+  buisnessObj_not_ends_with: String
+  actions_every: PermissionActionWhereInput
+  actions_some: PermissionActionWhereInput
+  actions_none: PermissionActionWhereInput
+  AND: [PermissionWhereInput!]
+  OR: [PermissionWhereInput!]
+  NOT: [PermissionWhereInput!]
+}
+
+input PermissionWhereUniqueInput {
+  id: ID
+  buisnessObj: String
+}
+
+type PhaseFormsPayload {
+  id: ID!
+  phase: PhasePayload!
+  until: DateTime
+  required: Boolean!
+  document: String!
+  projectManager: User
+  taskTitle: String!
+}
+
+type PhaseFormsPayloadConnection {
+  pageInfo: PageInfo!
+  edges: [PhaseFormsPayloadEdge]!
+  aggregate: AggregatePhaseFormsPayload!
+}
+
+input PhaseFormsPayloadCreateInput {
+  id: ID
+  phase: PhasePayloadCreateOneWithoutTasksInput!
+  until: DateTime
+  required: Boolean!
+  document: String!
+  projectManager: UserCreateOneInput
+  taskTitle: String!
+}
+
+input PhaseFormsPayloadCreateManyWithoutPhaseInput {
+  create: [PhaseFormsPayloadCreateWithoutPhaseInput!]
+  connect: [PhaseFormsPayloadWhereUniqueInput!]
+}
+
+input PhaseFormsPayloadCreateOneInput {
+  create: PhaseFormsPayloadCreateInput
+  connect: PhaseFormsPayloadWhereUniqueInput
+}
+
+input PhaseFormsPayloadCreateWithoutPhaseInput {
+  id: ID
+  until: DateTime
+  required: Boolean!
+  document: String!
+  projectManager: UserCreateOneInput
+  taskTitle: String!
+}
+
+type PhaseFormsPayloadEdge {
+  node: PhaseFormsPayload!
+  cursor: String!
+}
+
+enum PhaseFormsPayloadOrderByInput {
+  id_ASC
+  id_DESC
+  until_ASC
+  until_DESC
+  required_ASC
+  required_DESC
+  document_ASC
+  document_DESC
+  taskTitle_ASC
+  taskTitle_DESC
+}
+
+type PhaseFormsPayloadPreviousValues {
+  id: ID!
+  until: DateTime
+  required: Boolean!
+  document: String!
+  taskTitle: String!
+}
+
+input PhaseFormsPayloadScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  until: DateTime
+  until_not: DateTime
+  until_in: [DateTime!]
+  until_not_in: [DateTime!]
+  until_lt: DateTime
+  until_lte: DateTime
+  until_gt: DateTime
+  until_gte: DateTime
+  required: Boolean
+  required_not: Boolean
+  document: String
+  document_not: String
+  document_in: [String!]
+  document_not_in: [String!]
+  document_lt: String
+  document_lte: String
+  document_gt: String
+  document_gte: String
+  document_contains: String
+  document_not_contains: String
+  document_starts_with: String
+  document_not_starts_with: String
+  document_ends_with: String
+  document_not_ends_with: String
+  taskTitle: String
+  taskTitle_not: String
+  taskTitle_in: [String!]
+  taskTitle_not_in: [String!]
+  taskTitle_lt: String
+  taskTitle_lte: String
+  taskTitle_gt: String
+  taskTitle_gte: String
+  taskTitle_contains: String
+  taskTitle_not_contains: String
+  taskTitle_starts_with: String
+  taskTitle_not_starts_with: String
+  taskTitle_ends_with: String
+  taskTitle_not_ends_with: String
+  AND: [PhaseFormsPayloadScalarWhereInput!]
+  OR: [PhaseFormsPayloadScalarWhereInput!]
+  NOT: [PhaseFormsPayloadScalarWhereInput!]
+}
+
+type PhaseFormsPayloadSubscriptionPayload {
+  mutation: MutationType!
+  node: PhaseFormsPayload
+  updatedFields: [String!]
+  previousValues: PhaseFormsPayloadPreviousValues
+}
+
+input PhaseFormsPayloadSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: PhaseFormsPayloadWhereInput
+  AND: [PhaseFormsPayloadSubscriptionWhereInput!]
+  OR: [PhaseFormsPayloadSubscriptionWhereInput!]
+  NOT: [PhaseFormsPayloadSubscriptionWhereInput!]
+}
+
+input PhaseFormsPayloadUpdateDataInput {
+  phase: PhasePayloadUpdateOneRequiredWithoutTasksInput
+  until: DateTime
+  required: Boolean
+  document: String
+  projectManager: UserUpdateOneInput
+  taskTitle: String
+}
+
+input PhaseFormsPayloadUpdateInput {
+  phase: PhasePayloadUpdateOneRequiredWithoutTasksInput
+  until: DateTime
+  required: Boolean
+  document: String
+  projectManager: UserUpdateOneInput
+  taskTitle: String
+}
+
+input PhaseFormsPayloadUpdateManyDataInput {
+  until: DateTime
+  required: Boolean
+  document: String
+  taskTitle: String
+}
+
+input PhaseFormsPayloadUpdateManyMutationInput {
+  until: DateTime
+  required: Boolean
+  document: String
+  taskTitle: String
+}
+
+input PhaseFormsPayloadUpdateManyWithoutPhaseInput {
+  create: [PhaseFormsPayloadCreateWithoutPhaseInput!]
+  delete: [PhaseFormsPayloadWhereUniqueInput!]
+  connect: [PhaseFormsPayloadWhereUniqueInput!]
+  set: [PhaseFormsPayloadWhereUniqueInput!]
+  disconnect: [PhaseFormsPayloadWhereUniqueInput!]
+  update: [PhaseFormsPayloadUpdateWithWhereUniqueWithoutPhaseInput!]
+  upsert: [PhaseFormsPayloadUpsertWithWhereUniqueWithoutPhaseInput!]
+  deleteMany: [PhaseFormsPayloadScalarWhereInput!]
+  updateMany: [PhaseFormsPayloadUpdateManyWithWhereNestedInput!]
+}
+
+input PhaseFormsPayloadUpdateManyWithWhereNestedInput {
+  where: PhaseFormsPayloadScalarWhereInput!
+  data: PhaseFormsPayloadUpdateManyDataInput!
+}
+
+input PhaseFormsPayloadUpdateOneInput {
+  create: PhaseFormsPayloadCreateInput
+  update: PhaseFormsPayloadUpdateDataInput
+  upsert: PhaseFormsPayloadUpsertNestedInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: PhaseFormsPayloadWhereUniqueInput
+}
+
+input PhaseFormsPayloadUpdateWithoutPhaseDataInput {
+  until: DateTime
+  required: Boolean
+  document: String
+  projectManager: UserUpdateOneInput
+  taskTitle: String
+}
+
+input PhaseFormsPayloadUpdateWithWhereUniqueWithoutPhaseInput {
+  where: PhaseFormsPayloadWhereUniqueInput!
+  data: PhaseFormsPayloadUpdateWithoutPhaseDataInput!
+}
+
+input PhaseFormsPayloadUpsertNestedInput {
+  update: PhaseFormsPayloadUpdateDataInput!
+  create: PhaseFormsPayloadCreateInput!
+}
+
+input PhaseFormsPayloadUpsertWithWhereUniqueWithoutPhaseInput {
+  where: PhaseFormsPayloadWhereUniqueInput!
+  update: PhaseFormsPayloadUpdateWithoutPhaseDataInput!
+  create: PhaseFormsPayloadCreateWithoutPhaseInput!
+}
+
+input PhaseFormsPayloadWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  phase: PhasePayloadWhereInput
+  until: DateTime
+  until_not: DateTime
+  until_in: [DateTime!]
+  until_not_in: [DateTime!]
+  until_lt: DateTime
+  until_lte: DateTime
+  until_gt: DateTime
+  until_gte: DateTime
+  required: Boolean
+  required_not: Boolean
+  document: String
+  document_not: String
+  document_in: [String!]
+  document_not_in: [String!]
+  document_lt: String
+  document_lte: String
+  document_gt: String
+  document_gte: String
+  document_contains: String
+  document_not_contains: String
+  document_starts_with: String
+  document_not_starts_with: String
+  document_ends_with: String
+  document_not_ends_with: String
+  projectManager: UserWhereInput
+  taskTitle: String
+  taskTitle_not: String
+  taskTitle_in: [String!]
+  taskTitle_not_in: [String!]
+  taskTitle_lt: String
+  taskTitle_lte: String
+  taskTitle_gt: String
+  taskTitle_gte: String
+  taskTitle_contains: String
+  taskTitle_not_contains: String
+  taskTitle_starts_with: String
+  taskTitle_not_starts_with: String
+  taskTitle_ends_with: String
+  taskTitle_not_ends_with: String
+  AND: [PhaseFormsPayloadWhereInput!]
+  OR: [PhaseFormsPayloadWhereInput!]
+  NOT: [PhaseFormsPayloadWhereInput!]
+}
+
+input PhaseFormsPayloadWhereUniqueInput {
+  id: ID
+}
+
+type PhasePayload {
+  id: ID!
+  aktiv: Boolean!
+  tasks(where: PhaseFormsPayloadWhereInput, orderBy: PhaseFormsPayloadOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [PhaseFormsPayload!]
+}
+
+type PhasePayloadConnection {
+  pageInfo: PageInfo!
+  edges: [PhasePayloadEdge]!
+  aggregate: AggregatePhasePayload!
+}
+
+input PhasePayloadCreateInput {
+  id: ID
+  aktiv: Boolean!
+  tasks: PhaseFormsPayloadCreateManyWithoutPhaseInput
+}
+
+input PhasePayloadCreateOneInput {
+  create: PhasePayloadCreateInput
+  connect: PhasePayloadWhereUniqueInput
+}
+
+input PhasePayloadCreateOneWithoutTasksInput {
+  create: PhasePayloadCreateWithoutTasksInput
+  connect: PhasePayloadWhereUniqueInput
+}
+
+input PhasePayloadCreateWithoutTasksInput {
+  id: ID
+  aktiv: Boolean!
+}
+
+type PhasePayloadEdge {
+  node: PhasePayload!
+  cursor: String!
+}
+
+enum PhasePayloadOrderByInput {
+  id_ASC
+  id_DESC
+  aktiv_ASC
+  aktiv_DESC
+}
+
+type PhasePayloadPreviousValues {
+  id: ID!
+  aktiv: Boolean!
+}
+
+type PhasePayloadSubscriptionPayload {
+  mutation: MutationType!
+  node: PhasePayload
+  updatedFields: [String!]
+  previousValues: PhasePayloadPreviousValues
+}
+
+input PhasePayloadSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: PhasePayloadWhereInput
+  AND: [PhasePayloadSubscriptionWhereInput!]
+  OR: [PhasePayloadSubscriptionWhereInput!]
+  NOT: [PhasePayloadSubscriptionWhereInput!]
+}
+
+input PhasePayloadUpdateDataInput {
+  aktiv: Boolean
+  tasks: PhaseFormsPayloadUpdateManyWithoutPhaseInput
+}
+
+input PhasePayloadUpdateInput {
+  aktiv: Boolean
+  tasks: PhaseFormsPayloadUpdateManyWithoutPhaseInput
+}
+
+input PhasePayloadUpdateManyMutationInput {
+  aktiv: Boolean
+}
+
+input PhasePayloadUpdateOneRequiredInput {
+  create: PhasePayloadCreateInput
+  update: PhasePayloadUpdateDataInput
+  upsert: PhasePayloadUpsertNestedInput
+  connect: PhasePayloadWhereUniqueInput
+}
+
+input PhasePayloadUpdateOneRequiredWithoutTasksInput {
+  create: PhasePayloadCreateWithoutTasksInput
+  update: PhasePayloadUpdateWithoutTasksDataInput
+  upsert: PhasePayloadUpsertWithoutTasksInput
+  connect: PhasePayloadWhereUniqueInput
+}
+
+input PhasePayloadUpdateWithoutTasksDataInput {
+  aktiv: Boolean
+}
+
+input PhasePayloadUpsertNestedInput {
+  update: PhasePayloadUpdateDataInput!
+  create: PhasePayloadCreateInput!
+}
+
+input PhasePayloadUpsertWithoutTasksInput {
+  update: PhasePayloadUpdateWithoutTasksDataInput!
+  create: PhasePayloadCreateWithoutTasksInput!
+}
+
+input PhasePayloadWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  aktiv: Boolean
+  aktiv_not: Boolean
+  tasks_every: PhaseFormsPayloadWhereInput
+  tasks_some: PhaseFormsPayloadWhereInput
+  tasks_none: PhaseFormsPayloadWhereInput
+  AND: [PhasePayloadWhereInput!]
+  OR: [PhasePayloadWhereInput!]
+  NOT: [PhasePayloadWhereInput!]
+}
+
+input PhasePayloadWhereUniqueInput {
+  id: ID
+}
+
+type Product {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String!
+  shortDescription: String!
+  description: String!
+}
+
+type ProductConnection {
+  pageInfo: PageInfo!
+  edges: [ProductEdge]!
+  aggregate: AggregateProduct!
+}
+
+input ProductCreateInput {
+  id: ID
+  name: String!
+  shortDescription: String!
+  description: String!
+}
+
+input ProductCreateManyInput {
+  create: [ProductCreateInput!]
+  connect: [ProductWhereUniqueInput!]
+}
+
+input ProductCreateOneInput {
+  create: ProductCreateInput
+  connect: ProductWhereUniqueInput
+}
+
+type ProductEdge {
+  node: Product!
+  cursor: String!
+}
+
+enum ProductOrderByInput {
+  id_ASC
+  id_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  name_ASC
+  name_DESC
+  shortDescription_ASC
+  shortDescription_DESC
+  description_ASC
+  description_DESC
+}
+
+type ProductPreviousValues {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String!
+  shortDescription: String!
+  description: String!
+}
+
+input ProductScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  shortDescription: String
+  shortDescription_not: String
+  shortDescription_in: [String!]
+  shortDescription_not_in: [String!]
+  shortDescription_lt: String
+  shortDescription_lte: String
+  shortDescription_gt: String
+  shortDescription_gte: String
+  shortDescription_contains: String
+  shortDescription_not_contains: String
+  shortDescription_starts_with: String
+  shortDescription_not_starts_with: String
+  shortDescription_ends_with: String
+  shortDescription_not_ends_with: String
+  description: String
+  description_not: String
+  description_in: [String!]
+  description_not_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_gt: String
+  description_gte: String
+  description_contains: String
+  description_not_contains: String
+  description_starts_with: String
+  description_not_starts_with: String
+  description_ends_with: String
+  description_not_ends_with: String
+  AND: [ProductScalarWhereInput!]
+  OR: [ProductScalarWhereInput!]
+  NOT: [ProductScalarWhereInput!]
+}
+
+type ProductSubscriptionPayload {
+  mutation: MutationType!
+  node: Product
+  updatedFields: [String!]
+  previousValues: ProductPreviousValues
+}
+
+input ProductSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: ProductWhereInput
+  AND: [ProductSubscriptionWhereInput!]
+  OR: [ProductSubscriptionWhereInput!]
+  NOT: [ProductSubscriptionWhereInput!]
+}
+
+input ProductUpdateDataInput {
+  name: String
+  shortDescription: String
+  description: String
+}
+
+input ProductUpdateInput {
+  name: String
+  shortDescription: String
+  description: String
+}
+
+input ProductUpdateManyDataInput {
+  name: String
+  shortDescription: String
+  description: String
+}
+
+input ProductUpdateManyInput {
+  create: [ProductCreateInput!]
+  update: [ProductUpdateWithWhereUniqueNestedInput!]
+  upsert: [ProductUpsertWithWhereUniqueNestedInput!]
+  delete: [ProductWhereUniqueInput!]
+  connect: [ProductWhereUniqueInput!]
+  set: [ProductWhereUniqueInput!]
+  disconnect: [ProductWhereUniqueInput!]
+  deleteMany: [ProductScalarWhereInput!]
+  updateMany: [ProductUpdateManyWithWhereNestedInput!]
+}
+
+input ProductUpdateManyMutationInput {
+  name: String
+  shortDescription: String
+  description: String
+}
+
+input ProductUpdateManyWithWhereNestedInput {
+  where: ProductScalarWhereInput!
+  data: ProductUpdateManyDataInput!
+}
+
+input ProductUpdateOneRequiredInput {
+  create: ProductCreateInput
+  update: ProductUpdateDataInput
+  upsert: ProductUpsertNestedInput
+  connect: ProductWhereUniqueInput
+}
+
+input ProductUpdateWithWhereUniqueNestedInput {
+  where: ProductWhereUniqueInput!
+  data: ProductUpdateDataInput!
+}
+
+input ProductUpsertNestedInput {
+  update: ProductUpdateDataInput!
+  create: ProductCreateInput!
+}
+
+input ProductUpsertWithWhereUniqueNestedInput {
+  where: ProductWhereUniqueInput!
+  update: ProductUpdateDataInput!
+  create: ProductCreateInput!
+}
+
+input ProductWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  shortDescription: String
+  shortDescription_not: String
+  shortDescription_in: [String!]
+  shortDescription_not_in: [String!]
+  shortDescription_lt: String
+  shortDescription_lte: String
+  shortDescription_gt: String
+  shortDescription_gte: String
+  shortDescription_contains: String
+  shortDescription_not_contains: String
+  shortDescription_starts_with: String
+  shortDescription_not_starts_with: String
+  shortDescription_ends_with: String
+  shortDescription_not_ends_with: String
+  description: String
+  description_not: String
+  description_in: [String!]
+  description_not_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_gt: String
+  description_gte: String
+  description_contains: String
+  description_not_contains: String
+  description_starts_with: String
+  description_not_starts_with: String
+  description_ends_with: String
+  description_not_ends_with: String
+  AND: [ProductWhereInput!]
+  OR: [ProductWhereInput!]
+  NOT: [ProductWhereInput!]
+}
+
+input ProductWhereUniqueInput {
+  id: ID
+}
+
+type Project {
+  id: Int!
+  status: Int!
+  mainProject: MainProject!
+  shortDescription: String!
+  notes: String
+  product: Product!
+  phases(where: ProjectPhaseWhereInput, orderBy: ProjectPhaseOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [ProjectPhase!]
+  projectManager(where: ProjectManagerWhereInput, orderBy: ProjectManagerOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [ProjectManager!]
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type ProjectConnection {
+  pageInfo: PageInfo!
+  edges: [ProjectEdge]!
+  aggregate: AggregateProject!
+}
+
+input ProjectCreateInput {
+  id: Int
+  status: Int!
+  mainProject: MainProjectCreateOneWithoutProjectsInput!
+  shortDescription: String!
+  notes: String
+  product: ProductCreateOneInput!
+  phases: ProjectPhaseCreateManyInput
+  projectManager: ProjectManagerCreateManyInput
+}
+
+input ProjectCreateManyWithoutMainProjectInput {
+  create: [ProjectCreateWithoutMainProjectInput!]
+  connect: [ProjectWhereUniqueInput!]
+}
+
+input ProjectCreateWithoutMainProjectInput {
+  id: Int
+  status: Int!
+  shortDescription: String!
+  notes: String
+  product: ProductCreateOneInput!
+  phases: ProjectPhaseCreateManyInput
+  projectManager: ProjectManagerCreateManyInput
+}
+
+type ProjectEdge {
+  node: Project!
+  cursor: String!
+}
+
+type ProjectForms {
+  id: ID!
+  criteriaCalculator: CriteriaCalculator
+}
+
+type ProjectFormsConnection {
+  pageInfo: PageInfo!
+  edges: [ProjectFormsEdge]!
+  aggregate: AggregateProjectForms!
+}
+
+input ProjectFormsCreateInput {
+  id: ID
+  criteriaCalculator: CriteriaCalculatorCreateOneInput
+}
+
+input ProjectFormsCreateOneInput {
+  create: ProjectFormsCreateInput
+  connect: ProjectFormsWhereUniqueInput
+}
+
+type ProjectFormsEdge {
+  node: ProjectForms!
+  cursor: String!
+}
+
+enum ProjectFormsOrderByInput {
+  id_ASC
+  id_DESC
+}
+
+type ProjectFormsPreviousValues {
+  id: ID!
+}
+
+type ProjectFormsSubscriptionPayload {
+  mutation: MutationType!
+  node: ProjectForms
+  updatedFields: [String!]
+  previousValues: ProjectFormsPreviousValues
+}
+
+input ProjectFormsSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: ProjectFormsWhereInput
+  AND: [ProjectFormsSubscriptionWhereInput!]
+  OR: [ProjectFormsSubscriptionWhereInput!]
+  NOT: [ProjectFormsSubscriptionWhereInput!]
+}
+
+input ProjectFormsUpdateDataInput {
+  criteriaCalculator: CriteriaCalculatorUpdateOneInput
+}
+
+input ProjectFormsUpdateInput {
+  criteriaCalculator: CriteriaCalculatorUpdateOneInput
+}
+
+input ProjectFormsUpdateOneInput {
+  create: ProjectFormsCreateInput
+  update: ProjectFormsUpdateDataInput
+  upsert: ProjectFormsUpsertNestedInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: ProjectFormsWhereUniqueInput
+}
+
+input ProjectFormsUpsertNestedInput {
+  update: ProjectFormsUpdateDataInput!
+  create: ProjectFormsCreateInput!
+}
+
+input ProjectFormsWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  criteriaCalculator: CriteriaCalculatorWhereInput
+  AND: [ProjectFormsWhereInput!]
+  OR: [ProjectFormsWhereInput!]
+  NOT: [ProjectFormsWhereInput!]
+}
+
+input ProjectFormsWhereUniqueInput {
+  id: ID
+}
+
+type ProjectManager {
+  id: ID!
+  order: Int!
+  manager: User!
+  notes: String
+}
+
+type ProjectManagerConnection {
+  pageInfo: PageInfo!
+  edges: [ProjectManagerEdge]!
+  aggregate: AggregateProjectManager!
+}
+
+input ProjectManagerCreateInput {
+  id: ID
+  order: Int!
+  manager: UserCreateOneInput!
+  notes: String
+}
+
+input ProjectManagerCreateManyInput {
+  create: [ProjectManagerCreateInput!]
+  connect: [ProjectManagerWhereUniqueInput!]
+}
+
+type ProjectManagerEdge {
+  node: ProjectManager!
+  cursor: String!
+}
+
+enum ProjectManagerOrderByInput {
+  id_ASC
+  id_DESC
+  order_ASC
+  order_DESC
+  notes_ASC
+  notes_DESC
+}
+
+type ProjectManagerPreviousValues {
+  id: ID!
+  order: Int!
+  notes: String
+}
+
+input ProjectManagerScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  order: Int
+  order_not: Int
+  order_in: [Int!]
+  order_not_in: [Int!]
+  order_lt: Int
+  order_lte: Int
+  order_gt: Int
+  order_gte: Int
+  notes: String
+  notes_not: String
+  notes_in: [String!]
+  notes_not_in: [String!]
+  notes_lt: String
+  notes_lte: String
+  notes_gt: String
+  notes_gte: String
+  notes_contains: String
+  notes_not_contains: String
+  notes_starts_with: String
+  notes_not_starts_with: String
+  notes_ends_with: String
+  notes_not_ends_with: String
+  AND: [ProjectManagerScalarWhereInput!]
+  OR: [ProjectManagerScalarWhereInput!]
+  NOT: [ProjectManagerScalarWhereInput!]
+}
+
+type ProjectManagerSubscriptionPayload {
+  mutation: MutationType!
+  node: ProjectManager
+  updatedFields: [String!]
+  previousValues: ProjectManagerPreviousValues
+}
+
+input ProjectManagerSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: ProjectManagerWhereInput
+  AND: [ProjectManagerSubscriptionWhereInput!]
+  OR: [ProjectManagerSubscriptionWhereInput!]
+  NOT: [ProjectManagerSubscriptionWhereInput!]
+}
+
+input ProjectManagerUpdateDataInput {
+  order: Int
+  manager: UserUpdateOneRequiredInput
+  notes: String
+}
+
+input ProjectManagerUpdateInput {
+  order: Int
+  manager: UserUpdateOneRequiredInput
+  notes: String
+}
+
+input ProjectManagerUpdateManyDataInput {
+  order: Int
+  notes: String
+}
+
+input ProjectManagerUpdateManyInput {
+  create: [ProjectManagerCreateInput!]
+  update: [ProjectManagerUpdateWithWhereUniqueNestedInput!]
+  upsert: [ProjectManagerUpsertWithWhereUniqueNestedInput!]
+  delete: [ProjectManagerWhereUniqueInput!]
+  connect: [ProjectManagerWhereUniqueInput!]
+  set: [ProjectManagerWhereUniqueInput!]
+  disconnect: [ProjectManagerWhereUniqueInput!]
+  deleteMany: [ProjectManagerScalarWhereInput!]
+  updateMany: [ProjectManagerUpdateManyWithWhereNestedInput!]
+}
+
+input ProjectManagerUpdateManyMutationInput {
+  order: Int
+  notes: String
+}
+
+input ProjectManagerUpdateManyWithWhereNestedInput {
+  where: ProjectManagerScalarWhereInput!
+  data: ProjectManagerUpdateManyDataInput!
+}
+
+input ProjectManagerUpdateWithWhereUniqueNestedInput {
+  where: ProjectManagerWhereUniqueInput!
+  data: ProjectManagerUpdateDataInput!
+}
+
+input ProjectManagerUpsertWithWhereUniqueNestedInput {
+  where: ProjectManagerWhereUniqueInput!
+  update: ProjectManagerUpdateDataInput!
+  create: ProjectManagerCreateInput!
+}
+
+input ProjectManagerWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  order: Int
+  order_not: Int
+  order_in: [Int!]
+  order_not_in: [Int!]
+  order_lt: Int
+  order_lte: Int
+  order_gt: Int
+  order_gte: Int
+  manager: UserWhereInput
+  notes: String
+  notes_not: String
+  notes_in: [String!]
+  notes_not_in: [String!]
+  notes_lt: String
+  notes_lte: String
+  notes_gt: String
+  notes_gte: String
+  notes_contains: String
+  notes_not_contains: String
+  notes_starts_with: String
+  notes_not_starts_with: String
+  notes_ends_with: String
+  notes_not_ends_with: String
+  AND: [ProjectManagerWhereInput!]
+  OR: [ProjectManagerWhereInput!]
+  NOT: [ProjectManagerWhereInput!]
+}
+
+input ProjectManagerWhereUniqueInput {
+  id: ID
+}
+
+enum ProjectOrderByInput {
+  id_ASC
+  id_DESC
+  status_ASC
+  status_DESC
+  shortDescription_ASC
+  shortDescription_DESC
+  notes_ASC
+  notes_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type ProjectPhase {
+  id: ID!
+  name: String!
+  status: Int
+  roles: [String!]!
+  users: [String!]!
+  forms: ProjectForms
+}
+
+type ProjectPhaseConnection {
+  pageInfo: PageInfo!
+  edges: [ProjectPhaseEdge]!
+  aggregate: AggregateProjectPhase!
+}
+
+input ProjectPhaseCreateInput {
+  id: ID
+  name: String!
+  status: Int
+  roles: ProjectPhaseCreaterolesInput
+  users: ProjectPhaseCreateusersInput
+  forms: ProjectFormsCreateOneInput
+}
+
+input ProjectPhaseCreateManyInput {
+  create: [ProjectPhaseCreateInput!]
+  connect: [ProjectPhaseWhereUniqueInput!]
+}
+
+input ProjectPhaseCreaterolesInput {
+  set: [String!]
+}
+
+input ProjectPhaseCreateusersInput {
+  set: [String!]
+}
+
+type ProjectPhaseEdge {
+  node: ProjectPhase!
+  cursor: String!
+}
+
+enum ProjectPhaseOrderByInput {
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  status_ASC
+  status_DESC
+}
+
+type ProjectPhasePreviousValues {
+  id: ID!
+  name: String!
+  status: Int
+  roles: [String!]!
+  users: [String!]!
+}
+
+input ProjectPhaseScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  status: Int
+  status_not: Int
+  status_in: [Int!]
+  status_not_in: [Int!]
+  status_lt: Int
+  status_lte: Int
+  status_gt: Int
+  status_gte: Int
+  AND: [ProjectPhaseScalarWhereInput!]
+  OR: [ProjectPhaseScalarWhereInput!]
+  NOT: [ProjectPhaseScalarWhereInput!]
+}
+
+type ProjectPhaseSubscriptionPayload {
+  mutation: MutationType!
+  node: ProjectPhase
+  updatedFields: [String!]
+  previousValues: ProjectPhasePreviousValues
+}
+
+input ProjectPhaseSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: ProjectPhaseWhereInput
+  AND: [ProjectPhaseSubscriptionWhereInput!]
+  OR: [ProjectPhaseSubscriptionWhereInput!]
+  NOT: [ProjectPhaseSubscriptionWhereInput!]
+}
+
+input ProjectPhaseUpdateDataInput {
+  name: String
+  status: Int
+  roles: ProjectPhaseUpdaterolesInput
+  users: ProjectPhaseUpdateusersInput
+  forms: ProjectFormsUpdateOneInput
+}
+
+input ProjectPhaseUpdateInput {
+  name: String
+  status: Int
+  roles: ProjectPhaseUpdaterolesInput
+  users: ProjectPhaseUpdateusersInput
+  forms: ProjectFormsUpdateOneInput
+}
+
+input ProjectPhaseUpdateManyDataInput {
+  name: String
+  status: Int
+  roles: ProjectPhaseUpdaterolesInput
+  users: ProjectPhaseUpdateusersInput
+}
+
+input ProjectPhaseUpdateManyInput {
+  create: [ProjectPhaseCreateInput!]
+  update: [ProjectPhaseUpdateWithWhereUniqueNestedInput!]
+  upsert: [ProjectPhaseUpsertWithWhereUniqueNestedInput!]
+  delete: [ProjectPhaseWhereUniqueInput!]
+  connect: [ProjectPhaseWhereUniqueInput!]
+  set: [ProjectPhaseWhereUniqueInput!]
+  disconnect: [ProjectPhaseWhereUniqueInput!]
+  deleteMany: [ProjectPhaseScalarWhereInput!]
+  updateMany: [ProjectPhaseUpdateManyWithWhereNestedInput!]
+}
+
+input ProjectPhaseUpdateManyMutationInput {
+  name: String
+  status: Int
+  roles: ProjectPhaseUpdaterolesInput
+  users: ProjectPhaseUpdateusersInput
+}
+
+input ProjectPhaseUpdateManyWithWhereNestedInput {
+  where: ProjectPhaseScalarWhereInput!
+  data: ProjectPhaseUpdateManyDataInput!
+}
+
+input ProjectPhaseUpdaterolesInput {
+  set: [String!]
+}
+
+input ProjectPhaseUpdateusersInput {
+  set: [String!]
+}
+
+input ProjectPhaseUpdateWithWhereUniqueNestedInput {
+  where: ProjectPhaseWhereUniqueInput!
+  data: ProjectPhaseUpdateDataInput!
+}
+
+input ProjectPhaseUpsertWithWhereUniqueNestedInput {
+  where: ProjectPhaseWhereUniqueInput!
+  update: ProjectPhaseUpdateDataInput!
+  create: ProjectPhaseCreateInput!
+}
+
+input ProjectPhaseWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  status: Int
+  status_not: Int
+  status_in: [Int!]
+  status_not_in: [Int!]
+  status_lt: Int
+  status_lte: Int
+  status_gt: Int
+  status_gte: Int
+  forms: ProjectFormsWhereInput
+  AND: [ProjectPhaseWhereInput!]
+  OR: [ProjectPhaseWhereInput!]
+  NOT: [ProjectPhaseWhereInput!]
+}
+
+input ProjectPhaseWhereUniqueInput {
+  id: ID
+}
+
+type ProjectPreviousValues {
+  id: Int!
+  status: Int!
+  shortDescription: String!
+  notes: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+input ProjectScalarWhereInput {
+  id: Int
+  id_not: Int
+  id_in: [Int!]
+  id_not_in: [Int!]
+  id_lt: Int
+  id_lte: Int
+  id_gt: Int
+  id_gte: Int
+  status: Int
+  status_not: Int
+  status_in: [Int!]
+  status_not_in: [Int!]
+  status_lt: Int
+  status_lte: Int
+  status_gt: Int
+  status_gte: Int
+  shortDescription: String
+  shortDescription_not: String
+  shortDescription_in: [String!]
+  shortDescription_not_in: [String!]
+  shortDescription_lt: String
+  shortDescription_lte: String
+  shortDescription_gt: String
+  shortDescription_gte: String
+  shortDescription_contains: String
+  shortDescription_not_contains: String
+  shortDescription_starts_with: String
+  shortDescription_not_starts_with: String
+  shortDescription_ends_with: String
+  shortDescription_not_ends_with: String
+  notes: String
+  notes_not: String
+  notes_in: [String!]
+  notes_not_in: [String!]
+  notes_lt: String
+  notes_lte: String
+  notes_gt: String
+  notes_gte: String
+  notes_contains: String
+  notes_not_contains: String
+  notes_starts_with: String
+  notes_not_starts_with: String
+  notes_ends_with: String
+  notes_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  AND: [ProjectScalarWhereInput!]
+  OR: [ProjectScalarWhereInput!]
+  NOT: [ProjectScalarWhereInput!]
+}
+
+type ProjectSubscriptionPayload {
+  mutation: MutationType!
+  node: Project
+  updatedFields: [String!]
+  previousValues: ProjectPreviousValues
+}
+
+input ProjectSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: ProjectWhereInput
+  AND: [ProjectSubscriptionWhereInput!]
+  OR: [ProjectSubscriptionWhereInput!]
+  NOT: [ProjectSubscriptionWhereInput!]
+}
+
+input ProjectUpdateInput {
+  status: Int
+  mainProject: MainProjectUpdateOneRequiredWithoutProjectsInput
+  shortDescription: String
+  notes: String
+  product: ProductUpdateOneRequiredInput
+  phases: ProjectPhaseUpdateManyInput
+  projectManager: ProjectManagerUpdateManyInput
+}
+
+input ProjectUpdateManyDataInput {
+  status: Int
+  shortDescription: String
+  notes: String
+}
+
+input ProjectUpdateManyMutationInput {
+  status: Int
+  shortDescription: String
+  notes: String
+}
+
+input ProjectUpdateManyWithoutMainProjectInput {
+  create: [ProjectCreateWithoutMainProjectInput!]
+  delete: [ProjectWhereUniqueInput!]
+  connect: [ProjectWhereUniqueInput!]
+  set: [ProjectWhereUniqueInput!]
+  disconnect: [ProjectWhereUniqueInput!]
+  update: [ProjectUpdateWithWhereUniqueWithoutMainProjectInput!]
+  upsert: [ProjectUpsertWithWhereUniqueWithoutMainProjectInput!]
+  deleteMany: [ProjectScalarWhereInput!]
+  updateMany: [ProjectUpdateManyWithWhereNestedInput!]
+}
+
+input ProjectUpdateManyWithWhereNestedInput {
+  where: ProjectScalarWhereInput!
+  data: ProjectUpdateManyDataInput!
+}
+
+input ProjectUpdateWithoutMainProjectDataInput {
+  status: Int
+  shortDescription: String
+  notes: String
+  product: ProductUpdateOneRequiredInput
+  phases: ProjectPhaseUpdateManyInput
+  projectManager: ProjectManagerUpdateManyInput
+}
+
+input ProjectUpdateWithWhereUniqueWithoutMainProjectInput {
+  where: ProjectWhereUniqueInput!
+  data: ProjectUpdateWithoutMainProjectDataInput!
+}
+
+input ProjectUpsertWithWhereUniqueWithoutMainProjectInput {
+  where: ProjectWhereUniqueInput!
+  update: ProjectUpdateWithoutMainProjectDataInput!
+  create: ProjectCreateWithoutMainProjectInput!
+}
+
+input ProjectWhereInput {
+  id: Int
+  id_not: Int
+  id_in: [Int!]
+  id_not_in: [Int!]
+  id_lt: Int
+  id_lte: Int
+  id_gt: Int
+  id_gte: Int
+  status: Int
+  status_not: Int
+  status_in: [Int!]
+  status_not_in: [Int!]
+  status_lt: Int
+  status_lte: Int
+  status_gt: Int
+  status_gte: Int
+  mainProject: MainProjectWhereInput
+  shortDescription: String
+  shortDescription_not: String
+  shortDescription_in: [String!]
+  shortDescription_not_in: [String!]
+  shortDescription_lt: String
+  shortDescription_lte: String
+  shortDescription_gt: String
+  shortDescription_gte: String
+  shortDescription_contains: String
+  shortDescription_not_contains: String
+  shortDescription_starts_with: String
+  shortDescription_not_starts_with: String
+  shortDescription_ends_with: String
+  shortDescription_not_ends_with: String
+  notes: String
+  notes_not: String
+  notes_in: [String!]
+  notes_not_in: [String!]
+  notes_lt: String
+  notes_lte: String
+  notes_gt: String
+  notes_gte: String
+  notes_contains: String
+  notes_not_contains: String
+  notes_starts_with: String
+  notes_not_starts_with: String
+  notes_ends_with: String
+  notes_not_ends_with: String
+  product: ProductWhereInput
+  phases_every: ProjectPhaseWhereInput
+  phases_some: ProjectPhaseWhereInput
+  phases_none: ProjectPhaseWhereInput
+  projectManager_every: ProjectManagerWhereInput
+  projectManager_some: ProjectManagerWhereInput
+  projectManager_none: ProjectManagerWhereInput
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  AND: [ProjectWhereInput!]
+  OR: [ProjectWhereInput!]
+  NOT: [ProjectWhereInput!]
+}
+
+input ProjectWhereUniqueInput {
+  id: Int
+}
+
+type Query {
+  address(where: AddressWhereUniqueInput!): Address
+  addresses(where: AddressWhereInput, orderBy: AddressOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Address]!
+  addressesConnection(where: AddressWhereInput, orderBy: AddressOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): AddressConnection!
+  analyzeCustomerForm(where: AnalyzeCustomerFormWhereUniqueInput!): AnalyzeCustomerForm
+  analyzeCustomerForms(where: AnalyzeCustomerFormWhereInput, orderBy: AnalyzeCustomerFormOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [AnalyzeCustomerForm]!
+  analyzeCustomerFormsConnection(where: AnalyzeCustomerFormWhereInput, orderBy: AnalyzeCustomerFormOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): AnalyzeCustomerFormConnection!
+  branch(where: BranchWhereUniqueInput!): Branch
+  branches(where: BranchWhereInput, orderBy: BranchOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Branch]!
+  branchesConnection(where: BranchWhereInput, orderBy: BranchOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): BranchConnection!
+  buisness(where: BuisnessWhereUniqueInput!): Buisness
+  buisnesses(where: BuisnessWhereInput, orderBy: BuisnessOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Buisness]!
+  buisnessesConnection(where: BuisnessWhereInput, orderBy: BuisnessOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): BuisnessConnection!
+  contact(where: ContactWhereUniqueInput!): Contact
+  contacts(where: ContactWhereInput, orderBy: ContactOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Contact]!
+  contactsConnection(where: ContactWhereInput, orderBy: ContactOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ContactConnection!
+  criteriaCalculator(where: CriteriaCalculatorWhereUniqueInput!): CriteriaCalculator
+  criteriaCalculators(where: CriteriaCalculatorWhereInput, orderBy: CriteriaCalculatorOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [CriteriaCalculator]!
+  criteriaCalculatorsConnection(where: CriteriaCalculatorWhereInput, orderBy: CriteriaCalculatorOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): CriteriaCalculatorConnection!
+  customer(where: CustomerWhereUniqueInput!): Customer
+  customers(where: CustomerWhereInput, orderBy: CustomerOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Customer]!
+  customersConnection(where: CustomerWhereInput, orderBy: CustomerOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): CustomerConnection!
+  lead(where: LeadWhereUniqueInput!): Lead
+  leads(where: LeadWhereInput, orderBy: LeadOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Lead]!
+  leadsConnection(where: LeadWhereInput, orderBy: LeadOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): LeadConnection!
+  mainProject(where: MainProjectWhereUniqueInput!): MainProject
+  mainProjects(where: MainProjectWhereInput, orderBy: MainProjectOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [MainProject]!
+  mainProjectsConnection(where: MainProjectWhereInput, orderBy: MainProjectOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): MainProjectConnection!
+  mainProjectPhases(where: MainProjectPhasesWhereUniqueInput!): MainProjectPhases
+  mainProjectPhaseses(where: MainProjectPhasesWhereInput, orderBy: MainProjectPhasesOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [MainProjectPhases]!
+  mainProjectPhasesesConnection(where: MainProjectPhasesWhereInput, orderBy: MainProjectPhasesOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): MainProjectPhasesConnection!
+  permission(where: PermissionWhereUniqueInput!): Permission
+  permissions(where: PermissionWhereInput, orderBy: PermissionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Permission]!
+  permissionsConnection(where: PermissionWhereInput, orderBy: PermissionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PermissionConnection!
+  permissionAction(where: PermissionActionWhereUniqueInput!): PermissionAction
+  permissionActions(where: PermissionActionWhereInput, orderBy: PermissionActionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [PermissionAction]!
+  permissionActionsConnection(where: PermissionActionWhereInput, orderBy: PermissionActionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PermissionActionConnection!
+  phaseFormsPayload(where: PhaseFormsPayloadWhereUniqueInput!): PhaseFormsPayload
+  phaseFormsPayloads(where: PhaseFormsPayloadWhereInput, orderBy: PhaseFormsPayloadOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [PhaseFormsPayload]!
+  phaseFormsPayloadsConnection(where: PhaseFormsPayloadWhereInput, orderBy: PhaseFormsPayloadOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PhaseFormsPayloadConnection!
+  phasePayload(where: PhasePayloadWhereUniqueInput!): PhasePayload
+  phasePayloads(where: PhasePayloadWhereInput, orderBy: PhasePayloadOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [PhasePayload]!
+  phasePayloadsConnection(where: PhasePayloadWhereInput, orderBy: PhasePayloadOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PhasePayloadConnection!
+  product(where: ProductWhereUniqueInput!): Product
+  products(where: ProductWhereInput, orderBy: ProductOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Product]!
+  productsConnection(where: ProductWhereInput, orderBy: ProductOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ProductConnection!
+  project(where: ProjectWhereUniqueInput!): Project
+  projects(where: ProjectWhereInput, orderBy: ProjectOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Project]!
+  projectsConnection(where: ProjectWhereInput, orderBy: ProjectOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ProjectConnection!
+  projectForms(where: ProjectFormsWhereUniqueInput!): ProjectForms
+  projectFormses(where: ProjectFormsWhereInput, orderBy: ProjectFormsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [ProjectForms]!
+  projectFormsesConnection(where: ProjectFormsWhereInput, orderBy: ProjectFormsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ProjectFormsConnection!
+  projectManager(where: ProjectManagerWhereUniqueInput!): ProjectManager
+  projectManagers(where: ProjectManagerWhereInput, orderBy: ProjectManagerOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [ProjectManager]!
+  projectManagersConnection(where: ProjectManagerWhereInput, orderBy: ProjectManagerOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ProjectManagerConnection!
+  projectPhase(where: ProjectPhaseWhereUniqueInput!): ProjectPhase
+  projectPhases(where: ProjectPhaseWhereInput, orderBy: ProjectPhaseOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [ProjectPhase]!
+  projectPhasesConnection(where: ProjectPhaseWhereInput, orderBy: ProjectPhaseOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ProjectPhaseConnection!
+  user(where: UserWhereUniqueInput!): User
+  users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User]!
+  usersConnection(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserConnection!
+  node(id: ID!): Node
+}
+
+type Subscription {
+  address(where: AddressSubscriptionWhereInput): AddressSubscriptionPayload
+  analyzeCustomerForm(where: AnalyzeCustomerFormSubscriptionWhereInput): AnalyzeCustomerFormSubscriptionPayload
+  branch(where: BranchSubscriptionWhereInput): BranchSubscriptionPayload
+  buisness(where: BuisnessSubscriptionWhereInput): BuisnessSubscriptionPayload
+  contact(where: ContactSubscriptionWhereInput): ContactSubscriptionPayload
+  criteriaCalculator(where: CriteriaCalculatorSubscriptionWhereInput): CriteriaCalculatorSubscriptionPayload
+  customer(where: CustomerSubscriptionWhereInput): CustomerSubscriptionPayload
+  lead(where: LeadSubscriptionWhereInput): LeadSubscriptionPayload
+  mainProject(where: MainProjectSubscriptionWhereInput): MainProjectSubscriptionPayload
+  mainProjectPhases(where: MainProjectPhasesSubscriptionWhereInput): MainProjectPhasesSubscriptionPayload
+  permission(where: PermissionSubscriptionWhereInput): PermissionSubscriptionPayload
+  permissionAction(where: PermissionActionSubscriptionWhereInput): PermissionActionSubscriptionPayload
+  phaseFormsPayload(where: PhaseFormsPayloadSubscriptionWhereInput): PhaseFormsPayloadSubscriptionPayload
+  phasePayload(where: PhasePayloadSubscriptionWhereInput): PhasePayloadSubscriptionPayload
+  product(where: ProductSubscriptionWhereInput): ProductSubscriptionPayload
+  project(where: ProjectSubscriptionWhereInput): ProjectSubscriptionPayload
+  projectForms(where: ProjectFormsSubscriptionWhereInput): ProjectFormsSubscriptionPayload
+  projectManager(where: ProjectManagerSubscriptionWhereInput): ProjectManagerSubscriptionPayload
+  projectPhase(where: ProjectPhaseSubscriptionWhereInput): ProjectPhaseSubscriptionPayload
+  user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
+}
+
+type User {
+  id: ID!
+  email: String!
+  password: String!
+  profileImage: String
+  firstname: String!
+  lastname: String!
+  nickname: String
+  telephone: String
+  mobile: String
+  position: String
+  roles: [String!]!
+}
+
+type UserConnection {
+  pageInfo: PageInfo!
+  edges: [UserEdge]!
+  aggregate: AggregateUser!
+}
+
+input UserCreateInput {
+  id: ID
+  email: String!
+  password: String!
+  profileImage: String
+  firstname: String!
+  lastname: String!
+  nickname: String
+  telephone: String
+  mobile: String
+  position: String
+  roles: UserCreaterolesInput
+}
+
+input UserCreateManyInput {
+  create: [UserCreateInput!]
+  connect: [UserWhereUniqueInput!]
+}
+
+input UserCreateOneInput {
+  create: UserCreateInput
+  connect: UserWhereUniqueInput
+}
+
+input UserCreaterolesInput {
+  set: [String!]
+}
+
+type UserEdge {
+  node: User!
+  cursor: String!
+}
+
+enum UserOrderByInput {
+  id_ASC
+  id_DESC
+  email_ASC
+  email_DESC
+  password_ASC
+  password_DESC
+  profileImage_ASC
+  profileImage_DESC
+  firstname_ASC
+  firstname_DESC
+  lastname_ASC
+  lastname_DESC
+  nickname_ASC
+  nickname_DESC
+  telephone_ASC
+  telephone_DESC
+  mobile_ASC
+  mobile_DESC
+  position_ASC
+  position_DESC
+}
+
+type UserPreviousValues {
+  id: ID!
+  email: String!
+  password: String!
+  profileImage: String
+  firstname: String!
+  lastname: String!
+  nickname: String
+  telephone: String
+  mobile: String
+  position: String
+  roles: [String!]!
+}
+
+input UserScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  email: String
+  email_not: String
+  email_in: [String!]
+  email_not_in: [String!]
+  email_lt: String
+  email_lte: String
+  email_gt: String
+  email_gte: String
+  email_contains: String
+  email_not_contains: String
+  email_starts_with: String
+  email_not_starts_with: String
+  email_ends_with: String
+  email_not_ends_with: String
+  password: String
+  password_not: String
+  password_in: [String!]
+  password_not_in: [String!]
+  password_lt: String
+  password_lte: String
+  password_gt: String
+  password_gte: String
+  password_contains: String
+  password_not_contains: String
+  password_starts_with: String
+  password_not_starts_with: String
+  password_ends_with: String
+  password_not_ends_with: String
+  profileImage: String
+  profileImage_not: String
+  profileImage_in: [String!]
+  profileImage_not_in: [String!]
+  profileImage_lt: String
+  profileImage_lte: String
+  profileImage_gt: String
+  profileImage_gte: String
+  profileImage_contains: String
+  profileImage_not_contains: String
+  profileImage_starts_with: String
+  profileImage_not_starts_with: String
+  profileImage_ends_with: String
+  profileImage_not_ends_with: String
+  firstname: String
+  firstname_not: String
+  firstname_in: [String!]
+  firstname_not_in: [String!]
+  firstname_lt: String
+  firstname_lte: String
+  firstname_gt: String
+  firstname_gte: String
+  firstname_contains: String
+  firstname_not_contains: String
+  firstname_starts_with: String
+  firstname_not_starts_with: String
+  firstname_ends_with: String
+  firstname_not_ends_with: String
+  lastname: String
+  lastname_not: String
+  lastname_in: [String!]
+  lastname_not_in: [String!]
+  lastname_lt: String
+  lastname_lte: String
+  lastname_gt: String
+  lastname_gte: String
+  lastname_contains: String
+  lastname_not_contains: String
+  lastname_starts_with: String
+  lastname_not_starts_with: String
+  lastname_ends_with: String
+  lastname_not_ends_with: String
+  nickname: String
+  nickname_not: String
+  nickname_in: [String!]
+  nickname_not_in: [String!]
+  nickname_lt: String
+  nickname_lte: String
+  nickname_gt: String
+  nickname_gte: String
+  nickname_contains: String
+  nickname_not_contains: String
+  nickname_starts_with: String
+  nickname_not_starts_with: String
+  nickname_ends_with: String
+  nickname_not_ends_with: String
+  telephone: String
+  telephone_not: String
+  telephone_in: [String!]
+  telephone_not_in: [String!]
+  telephone_lt: String
+  telephone_lte: String
+  telephone_gt: String
+  telephone_gte: String
+  telephone_contains: String
+  telephone_not_contains: String
+  telephone_starts_with: String
+  telephone_not_starts_with: String
+  telephone_ends_with: String
+  telephone_not_ends_with: String
+  mobile: String
+  mobile_not: String
+  mobile_in: [String!]
+  mobile_not_in: [String!]
+  mobile_lt: String
+  mobile_lte: String
+  mobile_gt: String
+  mobile_gte: String
+  mobile_contains: String
+  mobile_not_contains: String
+  mobile_starts_with: String
+  mobile_not_starts_with: String
+  mobile_ends_with: String
+  mobile_not_ends_with: String
+  position: String
+  position_not: String
+  position_in: [String!]
+  position_not_in: [String!]
+  position_lt: String
+  position_lte: String
+  position_gt: String
+  position_gte: String
+  position_contains: String
+  position_not_contains: String
+  position_starts_with: String
+  position_not_starts_with: String
+  position_ends_with: String
+  position_not_ends_with: String
+  AND: [UserScalarWhereInput!]
+  OR: [UserScalarWhereInput!]
+  NOT: [UserScalarWhereInput!]
+}
+
+type UserSubscriptionPayload {
+  mutation: MutationType!
+  node: User
+  updatedFields: [String!]
+  previousValues: UserPreviousValues
+}
+
+input UserSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: UserWhereInput
+  AND: [UserSubscriptionWhereInput!]
+  OR: [UserSubscriptionWhereInput!]
+  NOT: [UserSubscriptionWhereInput!]
+}
+
+input UserUpdateDataInput {
+  email: String
+  password: String
+  profileImage: String
+  firstname: String
+  lastname: String
+  nickname: String
+  telephone: String
+  mobile: String
+  position: String
+  roles: UserUpdaterolesInput
+}
+
+input UserUpdateInput {
+  email: String
+  password: String
+  profileImage: String
+  firstname: String
+  lastname: String
+  nickname: String
+  telephone: String
+  mobile: String
+  position: String
+  roles: UserUpdaterolesInput
+}
+
+input UserUpdateManyDataInput {
+  email: String
+  password: String
+  profileImage: String
+  firstname: String
+  lastname: String
+  nickname: String
+  telephone: String
+  mobile: String
+  position: String
+  roles: UserUpdaterolesInput
+}
+
+input UserUpdateManyInput {
+  create: [UserCreateInput!]
+  update: [UserUpdateWithWhereUniqueNestedInput!]
+  upsert: [UserUpsertWithWhereUniqueNestedInput!]
+  delete: [UserWhereUniqueInput!]
+  connect: [UserWhereUniqueInput!]
+  set: [UserWhereUniqueInput!]
+  disconnect: [UserWhereUniqueInput!]
+  deleteMany: [UserScalarWhereInput!]
+  updateMany: [UserUpdateManyWithWhereNestedInput!]
+}
+
+input UserUpdateManyMutationInput {
+  email: String
+  password: String
+  profileImage: String
+  firstname: String
+  lastname: String
+  nickname: String
+  telephone: String
+  mobile: String
+  position: String
+  roles: UserUpdaterolesInput
+}
+
+input UserUpdateManyWithWhereNestedInput {
+  where: UserScalarWhereInput!
+  data: UserUpdateManyDataInput!
+}
+
+input UserUpdateOneInput {
+  create: UserCreateInput
+  update: UserUpdateDataInput
+  upsert: UserUpsertNestedInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: UserWhereUniqueInput
+}
+
+input UserUpdateOneRequiredInput {
+  create: UserCreateInput
+  update: UserUpdateDataInput
+  upsert: UserUpsertNestedInput
+  connect: UserWhereUniqueInput
+}
+
+input UserUpdaterolesInput {
+  set: [String!]
+}
+
+input UserUpdateWithWhereUniqueNestedInput {
+  where: UserWhereUniqueInput!
+  data: UserUpdateDataInput!
+}
+
+input UserUpsertNestedInput {
+  update: UserUpdateDataInput!
+  create: UserCreateInput!
+}
+
+input UserUpsertWithWhereUniqueNestedInput {
+  where: UserWhereUniqueInput!
+  update: UserUpdateDataInput!
+  create: UserCreateInput!
+}
+
+input UserWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  email: String
+  email_not: String
+  email_in: [String!]
+  email_not_in: [String!]
+  email_lt: String
+  email_lte: String
+  email_gt: String
+  email_gte: String
+  email_contains: String
+  email_not_contains: String
+  email_starts_with: String
+  email_not_starts_with: String
+  email_ends_with: String
+  email_not_ends_with: String
+  password: String
+  password_not: String
+  password_in: [String!]
+  password_not_in: [String!]
+  password_lt: String
+  password_lte: String
+  password_gt: String
+  password_gte: String
+  password_contains: String
+  password_not_contains: String
+  password_starts_with: String
+  password_not_starts_with: String
+  password_ends_with: String
+  password_not_ends_with: String
+  profileImage: String
+  profileImage_not: String
+  profileImage_in: [String!]
+  profileImage_not_in: [String!]
+  profileImage_lt: String
+  profileImage_lte: String
+  profileImage_gt: String
+  profileImage_gte: String
+  profileImage_contains: String
+  profileImage_not_contains: String
+  profileImage_starts_with: String
+  profileImage_not_starts_with: String
+  profileImage_ends_with: String
+  profileImage_not_ends_with: String
+  firstname: String
+  firstname_not: String
+  firstname_in: [String!]
+  firstname_not_in: [String!]
+  firstname_lt: String
+  firstname_lte: String
+  firstname_gt: String
+  firstname_gte: String
+  firstname_contains: String
+  firstname_not_contains: String
+  firstname_starts_with: String
+  firstname_not_starts_with: String
+  firstname_ends_with: String
+  firstname_not_ends_with: String
+  lastname: String
+  lastname_not: String
+  lastname_in: [String!]
+  lastname_not_in: [String!]
+  lastname_lt: String
+  lastname_lte: String
+  lastname_gt: String
+  lastname_gte: String
+  lastname_contains: String
+  lastname_not_contains: String
+  lastname_starts_with: String
+  lastname_not_starts_with: String
+  lastname_ends_with: String
+  lastname_not_ends_with: String
+  nickname: String
+  nickname_not: String
+  nickname_in: [String!]
+  nickname_not_in: [String!]
+  nickname_lt: String
+  nickname_lte: String
+  nickname_gt: String
+  nickname_gte: String
+  nickname_contains: String
+  nickname_not_contains: String
+  nickname_starts_with: String
+  nickname_not_starts_with: String
+  nickname_ends_with: String
+  nickname_not_ends_with: String
+  telephone: String
+  telephone_not: String
+  telephone_in: [String!]
+  telephone_not_in: [String!]
+  telephone_lt: String
+  telephone_lte: String
+  telephone_gt: String
+  telephone_gte: String
+  telephone_contains: String
+  telephone_not_contains: String
+  telephone_starts_with: String
+  telephone_not_starts_with: String
+  telephone_ends_with: String
+  telephone_not_ends_with: String
+  mobile: String
+  mobile_not: String
+  mobile_in: [String!]
+  mobile_not_in: [String!]
+  mobile_lt: String
+  mobile_lte: String
+  mobile_gt: String
+  mobile_gte: String
+  mobile_contains: String
+  mobile_not_contains: String
+  mobile_starts_with: String
+  mobile_not_starts_with: String
+  mobile_ends_with: String
+  mobile_not_ends_with: String
+  position: String
+  position_not: String
+  position_in: [String!]
+  position_not_in: [String!]
+  position_lt: String
+  position_lte: String
+  position_gt: String
+  position_gte: String
+  position_contains: String
+  position_not_contains: String
+  position_starts_with: String
+  position_not_starts_with: String
+  position_ends_with: String
+  position_not_ends_with: String
+  AND: [UserWhereInput!]
+  OR: [UserWhereInput!]
+  NOT: [UserWhereInput!]
+}
+
+input UserWhereUniqueInput {
+  id: ID
+  email: String
+}

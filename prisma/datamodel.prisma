@@ -1,0 +1,199 @@
+type User {
+  id: ID! @id
+  email: String! @unique
+  password: String!
+  profileImage: String
+  firstname: String!
+  lastname: String!
+  nickname: String
+  telephone: String
+  mobile: String
+  position: String
+  roles: [String] @scalarList(strategy:RELATION)
+}
+
+type Lead {
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  customerName: String!
+  address: Address!
+  notes: String
+  products: [Product]
+}
+
+
+type Customer {
+  id: Int! @id
+  logo: String
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  name: String!
+  branch: [Branch]! @relation(name: "CustomerOnBranch", onDelete: CASCADE)
+  classification: String
+  projectManager: [ProjectManager] @relation(name: "CustomerOnManager")
+  notes: String
+}
+
+type Product {
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  name: String!
+  shortDescription: String!
+  description: String!
+}
+
+type ProjectManager {
+  id: ID! @id
+  order: Int!
+  manager: User!
+  notes: String
+}
+
+
+
+type Buisness {
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  title: String!
+  shortDescription: String!
+  longDescription: String!
+}
+
+type Address {
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  postalCode: String!
+  city: String!
+  street: String!
+  country: String!
+}
+
+
+type Branch {
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  name: String!
+  type: String!
+  buisness: [Buisness]!
+  address: Address! @relation(name: "BranchOnAddress", onDelete: CASCADE)
+  products: [Product] @relation(name: "BranchOnProduct")
+  contacts: [Contact] @relation(name: "BranchOnContact", onDelete: CASCADE)
+}
+
+type Contact {
+  id: ID! @id
+  profileImage: String
+  email: String
+  firstname: String!
+  lastname: String
+  nickname: String
+  telephone: String @list
+  mobile: String
+  position: String
+  notes: String
+}
+
+
+type PermissionAction {
+  id: ID! @id
+  type: String
+  users: [User]
+  roles: [String]  @scalarList(strategy: RELATION)
+}
+
+type Permission {
+  id: ID! @id
+  buisnessObj: String! @unique
+  actions: [PermissionAction]! @relation(name: "ActionOnPermission", onDelete: CASCADE)
+}
+
+
+
+
+type MainProject {
+  id: Int! @id
+  customer: Customer!
+  shortDescription: String!
+  status: Int!
+  projectManager: [ProjectManager]!
+  notes: String
+  projects: [Project]! @relation(name: "MainProjectOnProject", onDelete: CASCADE)
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  phases: MainProjectPhases!
+}
+
+type MainProjectPhases {
+  id: ID! @id
+  salesphase: PhasePayload!
+}
+
+type PhasePayload {
+  id: ID! @id
+  aktiv: Boolean!
+  tasks: [PhaseFormsPayload]
+}
+
+type PhaseFormsPayload {
+  id: ID! @id
+  phase: PhasePayload!
+  until: DateTime
+  required: Boolean!
+  document: String!
+  projectManager: User
+  taskTitle: String!
+}
+
+type AnalyzeCustomerForm {
+  id: ID! @id
+  payload: PhaseFormsPayload
+  result: String
+}
+
+
+ type ProjectPhase  {
+    id: ID! @id
+    name: String!
+    status: Int
+    roles: [String]! @scalarList(strategy: RELATION)
+    users: [String]! @scalarList(strategy: RELATION)
+    forms: ProjectForms  @relation(name: "ProjectPhaseOnProjectForms", onDelete: CASCADE)
+ }
+
+
+type Project {
+  id: Int! @id
+  status: Int!
+  mainProject: MainProject! @relation(name: "MainProjectOnProject")
+  shortDescription: String!
+  notes: String
+  product: Product!
+  phases: [ProjectPhase]! @relation(name: "ProjectOnProjectPhase", onDelete: CASCADE)
+  projectManager: [ProjectManager]!
+    createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+
+
+type ProjectForms {
+  id: ID! @id
+  criteriaCalculator: CriteriaCalculator @relation(name: "ProjectFormsOnCriteriaCalculator", onDelete: CASCADE)
+}
+
+ type CriteriaCalculator  {
+  id: ID! @id
+  status: Int!
+  required: Boolean!
+  milestone: Boolean!
+ }
+
+
+
+
+
