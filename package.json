@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@koa/cors": "2",
-    "apollo-server-koa": "^2.6.7",
+    "apollo-server-koa": "^2.14.2",
     "argon2": "^0.24.0",
     "bcryptjs": "2.4.3",
     "express": "^4.17.1",
